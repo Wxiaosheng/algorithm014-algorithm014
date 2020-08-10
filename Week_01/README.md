@@ -1,7 +1,9 @@
 学习笔记
 
 ## 刷题置顶🔝
-1. [Day1 LeetCode 283 移动零](./Day1/README.md)
+1. [Day1 LeetCode 283 移动零](./Day1/README.md#1)
+
+2. [盛水最多的容器](./Day1/README.md#2)
 
 ## 第一课数据结构与算法总览
 ### 个人总结的脑图
