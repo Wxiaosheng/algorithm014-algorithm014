@@ -1,3 +1,10 @@
+## 置顶(🔝)：实战题列表
+1. [移动零](#1)
+
+2. [盛水最多的容器](#2)
+
+
+<h2 id="1">移动零</h2>
 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
 
 说明:
@@ -84,3 +91,44 @@ var moveZeroes = function (nums) {
 }
 ```
 注意： 这种方法写起来很简单，但是其实效率并不好，因为我们都知道数组的 delete 的算法复杂度是 O(n)
+
+
+<h2 id="2">盛水最多的容器</h2>
+给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+
+说明：你不能倾斜容器，且 n 的值至少为 2。
+
+输入：[1,8,6,2,5,4,8,3,7]  
+输出：49
+
+### 方法一：暴力求解
+使用双层循环，列出所有可能的组合情况，并依次计算所有的面积值，记录最大值
+```js
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function (height) {
+  let area = 0
+  for (let i = 0; i < height.length - 1; i ++) {
+    for (let j = i + 1; j < height.length; j ++) {
+      area = Math.max(area, (j - i) * Math.min(height[i], height[j]))
+    }
+  }
+  return area
+}
+```
+
+### 方法二：双指针
+方法一的时间复杂度为 O(n^2)， 进一步对其优化，使用双指针的方式，使时间复杂度降低为 O(n)
+```js
+var maxArea = function (height) {
+  let area = 0
+  let j = height.length
+  for (let i = 0; i < j; ) {
+    const minHeight = height[i] <= height[j] ? height[i++] : height[j--]
+    area = Math.max(area, (j - i) * minHeight)
+  }
+  return area
+}
+```
