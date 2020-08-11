@@ -10,6 +10,8 @@
 ## 置顶(🔝)：实战题列表
 1. [三数之和](#4)
 
+2. [反转链表](#5)
+
 
 <h3 id="1">移动零</h3>
 思路：
@@ -165,5 +167,89 @@ var threeSum = function (nums) {
     }
   }
   return result
+}
+```
+
+
+<h3 id="5">反转链表</h3>
+自己使用以下两种方式写出来
+
+```js
+// 2次 loop，时间复杂度，空间复杂都高
+var reverseList = function (head) {
+  if (head === null || head.next === null) {
+    return head
+  }
+
+  const arr = []
+  while (head) {
+    arr.push(head.val)
+    head = head.next
+  }
+
+  let node = null
+  let temp = null
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (node === null) {
+      node = new ListNode(arr[i])
+      temp = node
+    } else {
+      temp.next = new ListNode(arr[i])
+      temp = temp.next
+    }
+  }
+  return node
+}
+```
+初次解出题目后，看到2次loop，因此对其进行优化，变成一次loop
+
+使用一次loop的方法是这么实现的，循环到每个节点的时候，都声称新的结点，并且指向上一次循环创建的结点，因此需要一个单独的变量存储上一次累计创建的结点
+
+```js
+var reverseList = function (head) {
+  if (head === null || head.next === null) return head
+
+  let list = null
+  while (head) {
+    const node = new ListNode(head.val)
+    node.next = list
+    list = node
+    head = head.next
+  }
+  return list
+}
+```
+
+官方给出了两种解法，都不是太好理解，下面来看一下
+
+```js
+// 官方解法一
+// 使用两个变量，分别存储当前结点的前一个结点，以及当前结点的 next
+var reverseList = function (head) {
+  if (head === null || head.next === null) return head;
+
+  let pre = null
+  let next = head
+  while (next) {
+    const temp = head.next
+    head.next = pre
+    pre = head
+    next = temp
+  }
+  return pre
+}
+
+// 官方解法二，递归
+// 正常思维非常不好理解，主要是因为递归程序是反向执行的
+
+var reverseList = function (head) {
+  if (head === null || head.next === null) return head;
+
+  const p = reverseList(head.next)
+  // 最后一次拿到的 p 是最后一个结点
+  // 最后一次拿到的 head 是 p 的前节点
+  head.next.next = head
+  head.next = null
+  return p
 }
 ```
