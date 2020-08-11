@@ -2,8 +2,8 @@
 
 ## 刷题置顶🔝
 1. [Day1 LeetCode 283 移动零](./Day1/README.md#1)
-
 2. [Day1 LeetCode 11 盛水最多的容器](./Day1/README.md#2)
+3. [Day2 LeetCode 15 三数之和](./Day2/README.md#4)
 
 ## 第一课数据结构与算法总览
 ### 个人总结的脑图
