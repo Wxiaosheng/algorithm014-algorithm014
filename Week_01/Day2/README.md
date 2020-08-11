@@ -8,6 +8,7 @@
 3. [爬楼梯](#3)
 
 ## 置顶(🔝)：实战题列表
+1. [三数之和](#4)
 
 
 <h3 id="1">移动零</h3>
@@ -80,4 +81,89 @@ var climbStaris = function (n) {
 }
 ```
 
+<h3 id="4">三数之和</h3>
+这道题个人只能写出三层循环 和 双层循环 + hash 的方式，但是都不能通过，提示 **超出时间限制**
 
+```js
+// 三层循环暴力求解
+var threeSum = function (nums) {
+  const result = []
+  const hash = {}
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    for (let j = i + 1; j < nums.length - 1; j++) {
+      for (let k = j + 1; k < nums.length; k++) {
+        if (nums[i] + nums[j] + nums[k] === 0) {
+          const cur = [nums[i], nums[j], nums[k]]
+          if (!hash[cur.toString()]){
+            result.push(cur)
+            hash[cur.toSting()] = true
+          }
+        }
+      }
+    }
+  }
+  return result
+}
+```
+
+```js
+// 两层循环
+for (let i = 0; i < nums.length - 2; i++) {
+  for (let j = i + 1; j < nums.length - 1; j++) {
+    // 存在符合的元素
+    if (hash[nums[j]] !== undefined) {
+      result.push(nums[j].concat(hash[j]))
+      hash[j] = undefined
+    } else {
+      const diff = 0 - nums[i] - nums[j]
+      hash[diff] = [nums[i], nums[j]]
+    }
+  }
+}
+// 注意，此时的结果并没去重，因此最后要对结果做一个过滤
+```
+
+最后来看看，本题的最佳解法，
+1. 先对数组去重
+2. 使用双层循环，外层遍历每个元素
+3. 内层循环，使用左右双指针，从当前元素后一位开始至最后一位，向所剩空间中间逼近
+
+```js
+var threeSum = function (nums) {
+  const result = []
+
+  // 排序
+  nums = nums.sort((a, b) => a - b)
+
+  for (let i = 0; i < nums.length; i++) {
+    // 最下的数都大于0，则直接退出循环
+    if (nums[i] > 0) break;
+
+    // 去重
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+    let left = i + 1
+    let right = nums.length - 1
+
+    while (left < right)  {
+      const cur = nums[i] + nums[left] + nums[right]
+      if (cur === 0) {
+        result.push([nums[i], nums[left], nums[right]])
+        // 去重
+        while (left < right && nums[left] === nums[left + 1]) continue;
+        while (left < right && nums[right] === nums[right - 1]) continue;
+        left++
+        right--
+      }
+      if (cur < 0) {
+        left++
+      }
+      if (cur > 0) {
+        right--
+      }
+    }
+  }
+  return result
+}
+```
