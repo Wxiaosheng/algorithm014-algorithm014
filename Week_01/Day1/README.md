@@ -124,7 +124,7 @@ var maxArea = function (height) {
 ```js
 var maxArea = function (height) {
   let area = 0
-  let j = height.length
+  let j = height.length - 1
   for (let i = 0; i < j; ) {
     const minHeight = height[i] <= height[j] ? height[i++] : height[j--]
     area = Math.max(area, (j - i) * minHeight)
