@@ -55,7 +55,7 @@ var swapPairs = function (head) {
 }
 ```
 
-### 非递归
+#### 非递归
 一层循环，每次处理两个节点，注意：
 1. 循环的更新条件是 **一次更新两个位置**
 2. 要有一个虚拟的头结点，来存放第一次交换后，且要返回的新链表的头结点
@@ -80,5 +80,56 @@ var swapPairs = function (head) {
 }
 ```
 
+### LeetCode 141 环形链表
+#### 自己想出来的方法，标记法
+但是会改变原有的数据，不是很友好
 
+```js
+var hasCycle = function (head) {
+  if (head === null || head.next === null) return false
+
+  while (head) {
+    if (head.isVisited) {
+      return true
+    }
+    head.isVisited = true
+    head = head.next
+  }
+  return false
+}
+```
+
+#### 自己想出来的，使用 hash 存储访问记录，不在影响原有数据
+```js
+var hasCycle = function (head) {
+  if (head === null || head.next === null) return false
+
+  const hashSet = new Set()
+  while (head) {
+    if (hashSet.has(head)) {
+      return true
+    }
+    hashSet.add(head)
+    head = head.next
+  }
+  return false
+}
+```
+
+#### 第三种方式，双指针 => 快慢指针
+```js
+var hasCycle = function (head) {
+  if (head === null || head.next === null)  return false
+
+  let fast = head, slow = head
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next
+    fast = fast.next.next
+    if (fast === slow) {
+      return true
+    }
+  }
+  return false
+}
+```
 
