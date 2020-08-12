@@ -81,6 +81,7 @@ var swapPairs = function (head) {
 ```
 
 <h3 id="2">LeetCode 141 环形链表</h3>
+
 #### 自己想出来的方法，标记法
 但是会改变原有的数据，不是很友好
 
@@ -133,3 +134,56 @@ var hasCycle = function (head) {
 }
 ```
 
+<h3 id="3">LeetCode 142 循环链表II</h3>
+即，判断有环链表的入环节点
+
+#### 方法一，loop + hash，第一次重复出现的节点即为 入环节点，自己想出来的(秒出)
+
+```js
+var detectCycle = function (head) {
+  if (head === null || head.next === null) return null
+
+  const hashSet = new Set()
+  while (head) {
+    if (hashSet.has(head)) {
+      return head
+    }
+    hashSet.add(head)
+    head = head.next
+  }
+  return null
+}
+```
+
+#### 方法二，其实是一种数学方法，通过现有公式推导出来的
+假设，`头结点` 到 `入环节点` 的距离为 x，`入环节点` 到 `相遇节点` 的距离为 y，从 `相遇节点` 再到 `入环节点` 的距离为 z，即环的长度为 y + z  
+
+当节点相遇时，fast 指针跑的是 slow 指针的两倍，因此 2 * (x + y) = x + y + n * (y + z)，其中 n 表示是跑了几圈
+
+因此我们可以得到 x = n * (y + z) - y = (n - 1) * (y + z) + z，而 y + z 表示跑了一整圈，因此其实还是在相遇点，这就意味 x = z，即 **将其中一个指针指回原点，然后每次都走1步，再次相遇的节点即为 入环节点**
+
+```js
+var delectCycle = function (head) {
+  if (head === null || head.next === null) return null
+
+  const vHead = head
+  let fast = head, slow = head
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next
+    slow = slow.next
+    if (fast === slow) {
+      // 有环
+      break;
+    }
+  }
+  if (fast !== slow) return null
+
+  // 从开始，再次相遇的节点即为 入环节点
+  fast = vHead
+  while (fast !== slow) {
+    fast = fast.next
+    slow = slow.next
+  }
+  return fast
+}
+```

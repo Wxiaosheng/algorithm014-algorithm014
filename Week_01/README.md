@@ -6,7 +6,9 @@
 3. [Day2 LeetCode 15 三数之和](./Day2/README.md#4)
 4. [Day2 LeetCode 206 反转链表](./Day2/README.md#5)
 5. [Day3 LeetCode 24 两两交换链表中的节点](./Day3/README.md#1)
-5. [Day3 LeetCode 141 循环链表](./Day3/README.md#2)
+6. [Day3 LeetCode 141 循环链表](./Day3/README.md#2)
+7. [Day3 LeetCode 142 循环链表II - 入环节点](./Day3/README.md#3)
+
 
 ## 第一课数据结构与算法总览
 ### 个人总结的脑图
