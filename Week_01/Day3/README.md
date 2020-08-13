@@ -69,7 +69,7 @@ var swapPairs = function (head) {
   const vHead = new ListNode()
   vHead.next = head
   const temp = vHead
-  while (temp !== null && temp.next !== null) {
+  while (temp.next !== null && temp.next.next !== null) {
     const start = temp.next
     const end = temp.next.next
 
