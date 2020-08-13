@@ -40,6 +40,8 @@ First In First Out
 1. priority queue 源代码分析
 
 
+## 第四课，实战题目解析：有效的括号、最小栈等问题
+
 ### LeetCode 20 有效的括号
 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
 
@@ -75,5 +77,84 @@ var isValid = function (s) {
     }
     // 空栈才表示 合法
     return stack.length === 0
+}
+```
+
+### LeetCode 84 柱状图中最大的矩形
+给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+
+求在该柱状图中，能够勾勒出来的矩形的最大面积。
+
+
+### 为什么可以想到用 栈 或 队列 来解决？
+其实程序都是人类思考的产物，往往一个东西并不是凭空的的发明创造出来的，而是根据现实生活中的我们常见的事物创建出来的  
+
+栈，其实类似于像 洋葱、子弹夹等那样，后进先出的，但是往往在程序中并不是一条路走到黑，满足某种情况下才会入栈，然后满足另一种情况就会出栈，然后交替执行，这样总体看起来和 先进后出并不是完全吻合，但是在处理相似的子问题时，一定是先进后出的
+
+队列，也是同样的，就像生活中排队购物一样，讲究的是先来后到，计算机处理的最基础的单元其实就是最简单的逻辑单元，正好需要这种模式
+
+#### 方法一，暴力枚举所有情况
+```js
+var largestRectangleArea = function(heights) {
+  // 方法一，暴力法
+  if (heights.length === 0) return 0
+  if (heights.length === 1) return heights[0]
+
+  let area = 0
+  for (let i = 0; i < heights.length; i++) {
+    // 初始化当前循环中，最小的高度
+    let minHeight = heights[i]
+    for (let j = i; j < heights.length; j++) {
+      minHeight = Math.min(minHeight, heights[j])
+      area = Math.max(area, (j - i + 1) * minHeight)
+    }
+  }
+  return area
+};
+```
+
+
+#### 方法二，枚举每一个高度，计算对应高度矩形的面积
+```js
+var largestRectangleArea = function(heights) {
+    if (heights.length === 0) return 0
+
+    let area = 0
+    for (let i = 0; i < height.length; i++) {
+        const curHeight = height[i]
+
+        let left = i
+        let right = i
+
+        // 左边界，小于当前高度的 高度
+        while (left > -1 && height[left] >= curHeight) left--
+        // 右边界，小于当前高度的 高度
+        while (right < height.length && height[right] >= curHieght) right++
+
+        area = Math.max(area, (right - left - 1) * curHeight)
+    }
+    return area
+}
+```
+
+#### 方法三，一层循环 + maxStack
+```js
+var largestRectangleArea = function(heights) {
+    if (heights.length === 0) return 0
+
+    let area = 0
+    const maxStack  = []
+    // 保证能在一次循环后，栈为空
+    heights = [0, ...heights, 0]
+    for (let i = 0; i < heights.length; i ++) {
+        const curHeight = heights[i]
+        while (curHeight < maxStack[maxStack.length - 1]) {
+            const stackTop = maxStack.pop()
+            // 面积为 当前下标与 出栈后栈顶元素的下标之差 - 1
+            area = Math.max(area, (i - maxStack[maxStack.length - 1] - 1) * curHeight)
+        }
+        maxStack.push(i)
+    }
+    return area
 }
 ```
