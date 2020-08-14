@@ -19,6 +19,10 @@
 
 2. [LeetCode 239 滑动窗口最大值](#2)
 
+3. [LeetCode 26 删除排序数组中的重复项](#3)
+
+4. [LeetCode 88 合并两个有序数组](#4)
+
 
 
 <h3 id="1">LeetCode 21 合并两个有序链表</h3>
@@ -71,6 +75,8 @@ var mergeList = function (l1, l2) {
   }
 }
 ```
+
+
 
 
 <h3 id="2">LeetCode 239 滑动窗口最大值</h3>
@@ -160,5 +166,34 @@ var maxSlidingWindow = function (nums, k) {
     res[i] = Math.max(left[i + k - 1], right[i]);
   }
   return res;
+}
+```
+
+<h3 id="3">LeetCode 26 删除排序数组中的重复项</h3>
+
+#### 方法，其实就是一个简单的双指针的方法，快慢指针
+
+```javascript
+var removeDuplicates = function (nums) {
+  if (nums.length < 2 ) return nums.length
+
+  let length = 0
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[length]) {
+      nums[++length] = nums[i]
+    }
+  }
+  return length + 1
+}
+```
+
+
+<h3 id="4">LeetCode 88 合并两个有序数组</h3>
+
+```javascript
+var merge = function (num1, m, num2, n) {
+  const sortArr = num1.slice(0, m).concat(num2.slice(0, n)).sort((a, b) => a - b)
+  num1.splict(0, sortArr.length, ...sortArr)
+  return num1
 }
 ```
