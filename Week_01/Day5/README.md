@@ -56,7 +56,20 @@ var mergeTwoList = function (l1, l2) {
 **本题现在是第二遍，但是还是很不熟练**
 
 ```javascript
+var mergeList = function (l1, l2) {
+  if (l1 === null) return l2
+  if (l2 === null) return l1
 
+  while (l1 !== null && l2 !== null) {
+    if (l1.val <= l2.val) {
+      l1.next = margeList(l1.next, l2)
+      return l1
+    } else {
+      l2.next = mergeList(l1, l2.next)
+      return l2
+    }
+  }
+}
 ```
 
 
