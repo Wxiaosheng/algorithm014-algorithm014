@@ -8,6 +8,8 @@
 5. [Day3 LeetCode 24 两两交换链表中的节点](./Day3/README.md#1)
 6. [Day3 LeetCode 141 循环链表](./Day3/README.md#2)
 7. [Day3 LeetCode 142 循环链表II - 入环节点](./Day3/README.md#3)
+7. [Day4 LeetCode 20 有效的括号](./Day4/README.md#1)
+8. [Day4 LeetCode 84 柱状图中最大的矩形](./Day4/README.md#2)
 
 
 ## 第一课数据结构与算法总览
