@@ -1,4 +1,6 @@
-学习笔记
+# 学习笔记
+
+[每日一题(置顶🔝)](../questions/README.md)
 
 ## 刷题置顶🔝
 1. [Day1 LeetCode 283 移动零](./Day1/README.md#1)
@@ -8,12 +10,14 @@
 5. [Day3 LeetCode 24 两两交换链表中的节点](./Day3/README.md#1)
 6. [Day3 LeetCode 141 循环链表](./Day3/README.md#2)
 7. [Day3 LeetCode 142 循环链表II - 入环节点](./Day3/README.md#3)
-7. [Day4 LeetCode 20 有效的括号](./Day4/README.md#1)
-8. [Day4 LeetCode 84 柱状图中最大的矩形](./Day4/README.md#2)
-9. [Day5 LeetCode 21 合并两个有序链表](./Day5/README.md#1)
-10. [Day5 LeetCode 239 滑动窗口最大值](./Day5/README.md#2)
-10. [Day5 LeetCode 26 删除排序数组中的重复项](./Day5/README.md#3)
-10. [Day5 LeetCode 88 合并两个有序数组](./Day5/README.md#4)
+8. [Day4 LeetCode 20 有效的括号](./Day4/README.md#1)
+9. [Day4 LeetCode 84 柱状图中最大的矩形](./Day4/README.md#2)
+10. [Day5 LeetCode 21 合并两个有序链表](./Day5/README.md#1)
+11. [Day5 LeetCode 239 滑动窗口最大值](./Day5/README.md#2)
+12. [Day5 LeetCode 26 删除排序数组中的重复项](./Day5/README.md#3)
+13. [Day5 LeetCode 88 合并两个有序数组](./Day5/README.md#4)
+14. [Day6 LeetCode 299 猜数字游戏](../question/leetcode.299.md)
+<!-- 15. [Day6 LeetCode 42 接雨水](../question/leetcode.299.md) -->
 
 
 ## 第一课数据结构与算法总览
