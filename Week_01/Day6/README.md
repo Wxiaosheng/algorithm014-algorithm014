@@ -1,7 +1,7 @@
 ## 刷题置顶🔝
 
 1. [LeetCode 299 猜数字游戏](../../question/leetcode.299.md)
-15. [Day6 LeetCode 42 接雨水](#1)
+2. [Day6 LeetCode 42 接雨水](#1)
 
 ### 接雨水
 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
@@ -28,6 +28,3 @@ var trap = function (height) {
     return area
 }
 ```
-
-#### 方法二，暴力求解
-**按照每层**
