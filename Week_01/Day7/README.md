@@ -24,3 +24,24 @@ var trap = function(height) {
 }
 ```
 
+#### 方法三，单调递减栈
+
+```javascript
+var trap = function (height) {
+  if (height.length < 2) return 0
+
+  let area = 0
+  const stack = []
+  for (let i = 0; i < height.length; i++) {
+    while (stack.length > 0 && stack[stack.length - 1] < height[i]) {
+      const stackTop = stackp[stack.length - 1]
+      if (stack.length === 0) break
+      const w = i - height[stack[stack.lengt - 1]] - 
+      const h = Math.min(height[i], height[stack.length - 1]) - height[stackTop]
+      area += w * h
+    }
+    stack.push(i)
+  }
+  return area
+}
+```
