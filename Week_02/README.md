@@ -27,6 +27,9 @@
     * ❌ [拓扑排序（Topological Sorting）](https://zhuanlan.zhihu.com/p/34871092)
     * ❌ [最短路径（Shortest Path）：Dijkstra](https://www.bilibili.com/video/av25829980?from=search&seid=13391343514095937158)
     * ❌ [最小生成树（Minimum Spanning Tree）](https://www.bilibili.com/video/av84820276?from=search&seid=17476598104352152051)
+  
+* ### 其他
+    * ✅ [LeetCode 18 四数之和]()
 
 
 ## 本周预习
