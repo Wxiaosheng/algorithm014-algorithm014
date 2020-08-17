@@ -53,3 +53,19 @@ var groupAnagrams = function (strs) {
 
 <h2 id="2">LeetCode 1 两数之和</h2>
 
+### 方法一， 暴力循环，枚举所有的组合情况
+
+### 方法二，loop + hash table
+```javascript
+var towSum = function (nums, target) {
+  if (nums.length < 2) return []
+  const hashMap = {}
+  for (let i = 0; i < nums.length; i++) {
+    if (hashMap[nums[i]] !== undefined) {
+      return [hashMap[nums[i]], i]
+    }
+    hashMap[target - nums[i]] = i
+  }
+  return []
+}
+```
