@@ -48,3 +48,11 @@ var inorderTraversal = function (root) {
   ]
 }
 ```
+
+<h2 id="2">LeetCode 144 二叉树的前序遍历</h2>
+
+> 与中序相似
+
+<h2 id="3">LeetCode 94 二叉树的后序遍历</h2>
+
+> 与中序相似
