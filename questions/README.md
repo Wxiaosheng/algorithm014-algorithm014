@@ -15,3 +15,5 @@
 * 2020-8-16: [LeetCode 25 K 个一组翻转链表](./leetcode.25.md)
 
 * 2020-8-17: [LeetCode 350 两个数组的交集 II](./leetcode.350.md)
+
+* 2020-8-18: [LeetCode 1021 删除最外层的括号](./leetcode.1021.md)
