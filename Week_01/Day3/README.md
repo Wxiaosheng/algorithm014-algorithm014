@@ -68,7 +68,7 @@ var swapPairs = function (head) {
 var swapPairs = function (head) {
   const vHead = new ListNode()
   vHead.next = head
-  const temp = vHead
+  let temp = vHead
   while (temp.next !== null && temp.next.next !== null) {
     const start = temp.next
     const end = temp.next.next
@@ -81,6 +81,7 @@ var swapPairs = function (head) {
     // 跟新循环变量
     temp = start
   }
+  return vHead.next
 }
 ```
 
