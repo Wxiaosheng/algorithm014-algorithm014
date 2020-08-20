@@ -18,11 +18,11 @@
     * ❌ N 叉树的层序遍历
    
 * ### 堆和二叉堆
-    * ✅ [剑指 Offer 40 最小的 k 个数](./Day4/README.md#1)（字节跳动在半年内面试中考过）
-    * ✅ 滑动窗口最大值（亚马逊在半年内面试中常考）
+    * ✅ [剑指 Offer 40 最小的 k 个数](.Day4/README.md#1)（字节跳动在半年内面试中考过）
+    * ⚠️ [LeetCode 239 滑动窗口最大值](.Day4/README.md#3)（亚马逊在半年内面试中常考）
     * ❌ HeapSort ：自学 https://www.geeksforgeeks.org/heap-sort/
     * ❌ 丑数（字节跳动在半年内面试中考过）
-    * ❌ 前 K 个高频元素（亚马逊在半年内面试中常考）
+    * ✅ [LeetCode 347 前 K 个高频元素](.Day4/README.md#2)（亚马逊在半年内面试中常考）
 
 * ### 图
     * ✅ [LeetCode 200 岛屿数量（连通图个数）](./Day5/README.md#1)
@@ -31,7 +31,7 @@
     * ❌ [最小生成树（Minimum Spanning Tree）](https://www.bilibili.com/video/av84820276?from=search&seid=17476598104352152051)
   
 * ### 其他
-    * ✅ [LeetCode 18 四数之和]()
+    * ✅ [LeetCode 18 四数之和](.Day4/README.md#4)
 
 
 ## 本周预习
@@ -144,3 +144,7 @@ Heap： 可以迅速的找到一堆数中的最大值 或 最小值的数据结�
 2. 依次从 根部，依次向下调整整个堆的结构（直到堆尾）(heapifyDown)
 
 **注意，二叉堆是一种堆的最常见且最简单实现，并不是最优的实现。**
+
+
+### 图 - Graph
+

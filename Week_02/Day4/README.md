@@ -30,3 +30,47 @@ var getLeastNumbers = function (nums, k) {
 ```javascript
 
 ```
+
+<h2 id="2">LeetCode 347 前 K 个高频元素</h2>
+
+给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
+
+示例 1:  
+
+输入: nums = [1,1,1,2,2,3], k = 2  
+输出: [1,2]  
+
+```javascript
+// 思路，使用 map 记录每个元素出现的次数，然后根据每个元素出现的次数排序(倒叙)，选取前 k 个元素即可
+var topKFrequent = function(nums, k) {
+  if (nums.length <= k) return nums
+  const map = {}
+  nums.forEach(num => map[num] = map[num] === undefined ? 1 : map[num] + 1)
+  return Object.entries(map).sort((a, b) => b[1] - a[1]).slice(0, k).map(item => Number(item[0]))
+};
+```
+
+
+<h2 id="3">LeetCode 239 滑动窗口最大值</h2>
+给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。
+
+返回滑动窗口中的最大值。  
+
+### 思路，使用一个小的数组，一次从 第K位开始，向后滑动，每次取该数组的最小值，既可得到结果
+
+```javascript
+if (nums.length <= 1) return nums
+  const window = nums.slice(0, k)
+  const result = [Math.max(...window)]
+  for (let i = k; i < nums.length; i++) {
+    window.shift()
+    window.push(nums[i])
+    result.push(Math.max(...window))
+  }
+  return result
+```
+
+
+### 进阶：你能在线性时间复杂度内解决此题吗？
+> 本题难的不是问题的求解，而是进阶的解法 (动态规划)
+
