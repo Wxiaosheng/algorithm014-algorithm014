@@ -16,7 +16,7 @@
     输出: 1
 
 
-### DFS 
+### DFS - 深度优先搜索
 1. 使用两层循环，遍历二维数组的每一项
 2. 碰到 1 (岛屿)时，则 调用 DFS 的方法，递归的遍历 当前点的 上下左右的点
 3. 同时，将访问过的点，置为 0 (水)
@@ -53,3 +53,45 @@ var numIslands = function (grid) {
     return sum
 }
 ```
+
+### BFS - 广度优先搜索
+> 需要借助于一个 队列
+
+1. 两层循环遍历 二维数组，对于每一个未访问过的（见3）岛屿结点，计数 +1
+2. 而且都做一次 BFS 搜索
+3. 访问过的结点要被标记为 访问过 
+
+```javascript
+var numIslands = function (grid) {
+    if (grid === null || grid.length === 0) return 0
+    let sum = 0
+    const rows = grid.length
+    const clos = grid[0].length
+    const bfs = (r, c) => {
+        const dirs = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+        const queue = [[r, c]]
+        grid[r][c]
+        while (queue.length > 0) {
+            const curr = queue.shift()
+            for (let dir of dirs) {
+            const x = curr[0] + dir[0]
+            const y = curr[1] + dir[1]
+            if (x < 0 || y < 0 || x >= rows || y >= clos || grid[x][y] === '0') continue
+            queue.push([x, y])
+            grid[x][y] = '0'
+            }
+        }
+    }
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < clos; j++) {
+            if (grid[i][j] === '1') {
+                sum++
+                bfs(i, j)
+            }
+        }
+    }
+    return sum
+}
+```
+
+### 查并集
