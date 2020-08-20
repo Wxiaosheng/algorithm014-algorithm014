@@ -94,4 +94,43 @@ var numIslands = function (grid) {
 }
 ```
 
+#### DFS - 代码模板
+##### 首先，我们来看一下 二叉树 DFS 遍历的模板
+```javascript
+var dfs = (root) => {
+    if (root === null) return
+
+    dfs(root.left)
+    dfs(root.right)
+}
+```
+
+##### 图的DFS 遍历模板
+```javascript
+var inArea = (grid, r, c) => {
+    if (
+        r < 0 || r > grid.length || 
+        c < 0 || c > grid[0].length || 
+        visitedMap[grid[r][c]]
+    ) {
+        return false
+    }
+    // 通常来说，图的 dfs 要不同于 树的 dfs，因为图可能形成回路，因此，要对访问过的元素打上标记
+    visitedMap[grid[r][c]] = true
+    return true
+}
+var dsf = function (grid, r, c) {
+    // 验证当前的点，是否有效，即是否是在 grid 的范围内
+    if (!inArea(grid, r, c)) return 
+
+    // 遍历当期那点 上下左右 相邻的点
+    dfs(grid, r - 1, c)
+    dfs(grid, r + 1, c)
+    dfs(grid, r, c - 1)
+    dfs(grid, r, c + 1)
+}
+```
+
+**[岛屿类问题的通用解法、DFS 遍历框架](https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/)**
+
 ### 查并集
