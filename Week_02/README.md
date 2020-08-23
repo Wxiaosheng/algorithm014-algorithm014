@@ -18,12 +18,12 @@
     * ✅ [LeetCode 429 N叉树的层序遍历](./Day6/README.md#1)
    
 * ### 堆和二叉堆
-    * ✅ [剑指 Offer 40 最小的 k 个数](.Day4/README.md#1)（字节跳动在半年内面试中考过）
-    * ⚠️ [LeetCode 239 滑动窗口最大值](.Day4/README.md#3)（亚马逊在半年内面试中常考）
+    * ✅ [剑指 Offer 40 最小的 k 个数](./Day4/README.md#1)（字节跳动在半年内面试中考过）
+    * ⚠️ [LeetCode 239 滑动窗口最大值](./Day4/README.md#3)（亚马逊在半年内面试中常考）
         * 由于js系统没有高级的已实现的Heap结构，因此尝试自己实现一个大顶堆对象，完成本题求解
     * ❌ HeapSort ：自学 https://www.geeksforgeeks.org/heap-sort/
-    * ❌ 丑数（字节跳动在半年内面试中考过）
-    * ✅ [LeetCode 347 前 K 个高频元素](.Day4/README.md#2)（亚马逊在半年内面试中常考）
+    * ✅ [LeetCode 263 丑数](./Day7/README.md#1)（字节跳动在半年内面试中考过）
+    * ✅ [LeetCode 347 前 K 个高频元素](./Day4/README.md#2)（亚马逊在半年内面试中常考）
 
 * ### 图
     * ✅ [LeetCode 200 岛屿数量（连通图个数）](./Day5/README.md#1)
