@@ -41,7 +41,7 @@
     * 二叉树的遍历，递归遍历、栈、莫里斯遍历
 3. LeetCode 剑指 Offer 40 最小的k个数
 
-![脑图总结](./1.png)
+![脑图总结](./data_structure_and_algorithm.png)
 
 
 ## 第5课 哈希表、映射、集合

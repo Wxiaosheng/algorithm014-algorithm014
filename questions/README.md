@@ -18,12 +18,14 @@
 
 * 2020-8-18: [LeetCode 1021 删除最外层的括号](./leetcode.1021.md)
 
-* 2020-8-19: [LeetCode 412 Fizz Buzz](./leetcode.412.md)
+* 2020-8-19: [LeetCode 100 相同的树](./leetcode.100.md)
 
 * 2020-8-20: [LeetCode 258 各位相加](./leetcode.258.md)
 
-* 2020-8-21: [LeetCode 258 各位相加](./leetcode.258.md)
+* 2020-8-21: [LeetCode 412 Fizz Buzz](./leetcode.412.md)
 
 * 2020-8-22: [LeetCode 104 二叉树的最大深度](./leetcode.104.md)
 
 * 2020-8-23: [LeetCode 283 移动零](./leetcode.283.md)
+
+* 2020-8-24: [LeetCode 94 二叉树的中序遍历](../Week_02/Day2/README.md#1)
