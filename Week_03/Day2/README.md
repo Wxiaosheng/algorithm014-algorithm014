@@ -164,3 +164,54 @@ var isVildBST = function (root) {
   return helper(root)
 }
 ```
+
+<h2 id="3">LeetCode 111 二叉树的最小深度</h2>
+
+#### 方法一、Depth First Search - 深度优先搜索
+
+```javascript
+var minDepth = function (root) {
+  if (root == null) return 0
+  let min
+  const helper = function (level, node) {
+    if (node.left == null && node.right == null) {
+      min = min === undefined ? level : Math.min(min, level)
+    }
+    if (node.left) helper(level + 1, node.left)
+    if (node.right) helper(level + 1, node.right)
+  }
+  helper(1, root)
+  return min
+}
+```
+
+#### 更加优雅的 DFS
+
+```javascript
+var minDepth = function (root) {
+  if (root == null) return 0
+  if (root.left == null) return minDepth(root.right) + 1
+  if (root.right == null) return minDepth(root.left) + 1
+  return Math.min(minDepth(root.left), minDepth(root.right)) + 1
+}
+```
+
+#### 方法二、Breath First Search - 广度优先所有
+
+```javascript
+var minDepth = function (root) {
+  if (root == null) return 0
+  const queue = [root]
+  let level = 0
+  while (queue.length > 0) {
+    const n = queue.length
+    level++
+    for (let i = 0; i < n; i++) {
+      const node = queue.shift()
+      if (node.left == null && node.right == null) return level
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
+    }
+  }
+}
+```
