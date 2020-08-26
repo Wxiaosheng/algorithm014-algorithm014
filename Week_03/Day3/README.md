@@ -132,3 +132,5 @@ var buildTree = function (preorder, inorder) {
   return root
 }
 ```
+
+#### 方法二、我暂时理解不了递归的解法
