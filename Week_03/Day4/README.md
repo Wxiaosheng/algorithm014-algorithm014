@@ -147,3 +147,29 @@ var subsets = function (nums) {
   return helper(0, [[]])
 }
 ```
+
+<h2 id="3">LeetCode 169 多数元素</h2>
+给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+
+你可以假设数组是非空的，并且给定的数组总是存在多数元素。
+
+#### 方法一、遍历数组 + Map 计数
+
+```javascript
+var majorityElement = function (nums) {
+  const hashMap = {}
+  for (let i of nums) {
+    hashMap[i] = hashMap[i] === undefined ? 1 : hashMap[i] + 1
+    if (hashMap[i] > Math.floor(nums.length / 2)) return i
+  }
+}
+```
+
+#### 方法二、排序取中间的元素
+> 前提：数组是非空的，并且给定的数组总是存在多数元素
+
+```javascript
+var majorityElement = function (nums) {
+  return nums.sort((a, b) => a - b)[Math.floot(nums.length / 2)]
+}
+```
