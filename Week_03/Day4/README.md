@@ -40,6 +40,7 @@ var myPow = function (x, n) {
 
 
 #### 方法二，拆分指数
+> 时间复杂度能降低到 O(lognN)
 
 ```javascript
 var myPow = function (x, n) {
@@ -56,3 +57,25 @@ var myPow = function (x, n) {
 
 
 <h2 id="2">LeetCode 78 子集</h2>
+
+
+#### 方法一，迭代
+
+```javascript
+var subsets = function (nums) {
+  if (nums.length == 0) return []
+  const helper = function (level, result) {
+    // terminator
+    if (level >= nums.length) return result
+    // process current logic
+    const copyPrev = JSON.parse(JSON.stringify(result))
+    for (let i = 0; i < copyPrev.length; i++) {
+      copyPrev[i].push(nums[level])
+    }
+    // drill dowm
+    return helper(level + 1, [...result, ...copyPrev])
+    // restore 
+  }
+  return helper(0, [[]])
+}
+```
