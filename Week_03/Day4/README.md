@@ -57,9 +57,32 @@ var myPow = function (x, n) {
 
 
 <h2 id="2">LeetCode 78 子集</h2>
+给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
 
+说明：解集不能包含重复的子集。
 
-#### 方法一，迭代
+    示例:
+    输入: nums = [1,2,3]
+    输出:
+    [
+      [3],
+      [1],
+      [2],
+      [1,2,3],
+      [1,3],
+      [2,3],
+      [1,2],
+      []
+    ]
+
+#### 方法一，递归
+
+    []      => []
+    [1]     => [], [1]
+    [1,2]   => [], [1], [2], [1,2]
+    [1,2,3] => [], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]
+
+    通过观察，可以发现，下一层的结果，都是将上一层的结果每一个元素都加新元素 和 上一层原来的结果 总和
 
 ```javascript
 var subsets = function (nums) {
@@ -75,6 +98,51 @@ var subsets = function (nums) {
     // drill dowm
     return helper(level + 1, [...result, ...copyPrev])
     // restore 
+  }
+  return helper(0, [[]])
+}
+```
+
+#### 方法二、迭代
+
+```javascript
+var subsets = function (nums) {
+  if (nums.length == 0) return []
+  let result = [[]]
+  for (let i = 0; i < nums.length; i++) {
+    const prev = JSON.parse(JSON.stringify(result))
+    for (let c of prev) {
+      c.push(nums[i])
+    }
+    result = result.concat(prev)
+  }
+  return result
+}
+```
+
+#### 方法三、另一种递归思想
+类似这种组合的问题，有一种通用的递归 组合方式
+
+1. 获取子集，可以看成对数组中的每一个元素，有 取 或者 不取 两种操作
+2. 递归，对每一元素都进行 取 或者 不取 的操作
+
+应用：
+  1. 生成有效括号也是类似这种思想（放左括号或者放右括号）
+
+```javascript
+var subsets = function (nums) {
+  if (nums.length == 0) return []
+  const helper = function (level, result) {
+    // terminator
+    if (level >= nums.length) return [result]
+    // process current logic
+    const no = helper(level + 1, JSON.parse(JSON.stringify(result)))
+    // 取
+    result.push(nums[level])
+    const take = helper(level + 1, JSON.parse(JSON.stringify(result)))
+    // drill down
+    // restore
+    return [...no, ...take]
   }
   return helper(0, [[]])
 }
