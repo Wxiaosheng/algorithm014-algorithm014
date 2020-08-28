@@ -216,3 +216,26 @@ var letterCombinations = function (digits) {
   return result
 };
 ```
+
+#### 方法二，迭代 （Queue）
+
+```javascript
+var letterCombinations = function(digits) {
+  if (digits.length == 0) return []
+  const map = { 2: 'abc', 3: 'def', 4: 'ghi', 5: 'jkl', 6: 'mno', 7: 'pqrs', 8: 'tuv', 9: 'wxyz' }
+  // 迭代， queue
+  let level = 1
+  const queue = [...map[digits[0]]]
+  while (level < digits.length) {
+    const n = queue.length
+    for (let i = 0; i < n; i++) {
+      const old = queue.shift()
+      for (let c of map[digits[level]]) {
+        queue.push(old + c)
+      }
+    }
+    level++
+  }
+  return queue
+};
+```
