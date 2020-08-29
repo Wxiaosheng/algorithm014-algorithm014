@@ -35,3 +35,7 @@
 * 2020-8-26: [剑指offer 06 ](./offer.06.md)
 
 * 2020-8-27: [剑指offer 68 / LeetCode 236 二叉树的最近公共祖先 ](../Week_03/Day3/README.md#1)
+
+* 2020-8-28: [LeetCode 18 四数之和](../Week_02/Day1/README.md#4)
+
+* 2020-8-29: [LeetCode 18 三数之和](../Week_01/Day2/README.md#4)

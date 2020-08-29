@@ -103,7 +103,33 @@ var subsets = function (nums) {
 }
 ```
 
-#### 方法二、迭代
+#### 方法二、本题类似于 括号生成的问题
+可以看成对传进来的数组做遍历，对于每个元素都有选和不选两种操作，这样就可以得到最终结果
+
+```javascript
+
+var subsets = function (nums) {
+  if (nums.length == 0) return []
+  const result = []
+  const helper = function (level, sub) {
+    // terminator
+    if (level >= nums.length) return result.push(sub.slice(0))
+    // process current logic
+    // 不选
+    helper(level + 1, sub)
+    // 选
+    sub.push(nums[level])
+    helper(level + 1, sub)
+    // drill down 
+    // restore - 由于 sub 是函数的参数，传递的是引用地址，因此需要回复本层 对 sub 影响
+    sub.pop()
+  }
+  helper(0, [])
+  return result
+}
+```
+
+#### 方法三、迭代
 
 ```javascript
 var subsets = function (nums) {
