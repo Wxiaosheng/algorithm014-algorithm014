@@ -22,9 +22,9 @@
 * 课后作业
     * ✅ [LeetCode 236 二叉树的最近公共祖先](./Day3/README.md#1)（Facebook 在半年内面试常考）
     * ✅ [LeetCode 105 从前序与中序遍历序列构造二叉树](./Day3/README.md#2)（字节跳动、亚马逊、微软在半年内面试中考过）
-    * ❌ 组合（微软、亚马逊、谷歌在半年内面试中考过）
-    * ❌ 全排列（字节跳动在半年内面试常考）
-    * ❌ 全排列 II （亚马逊、字节跳动、Facebook 在半年内面试中考过）
+    * ✅ [LeetCode 77 组合](./Day6/README.md#1)（微软、亚马逊、谷歌在半年内面试中考过）
+    * ✅ [LeetCode 46 全排列](./Day6/README.md#2)（字节跳动在半年内面试常考）
+    * ✅ [LeetCode 47 全排列 II](./Day6/README.md#3) （亚马逊、字节跳动、Facebook 在半年内面试中考过）
 * 其他
   * [LeetCode 657 机器人能否返回原点](./Day5/README.md#1)
 
