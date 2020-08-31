@@ -38,4 +38,4 @@
 
 * 2020-8-28: [LeetCode 18 四数之和](../Week_02/Day1/README.md#4)
 
-* 2020-8-29: [LeetCode 18 三数之和](../Week_01/Day2/README.md#4)
+* 2020-8-29: [LeetCode 46 全排列](../Week_03/Day6/README.md#2)
