@@ -50,3 +50,69 @@ var mySqrt = function (x) {
 }
 ```
 
+<h2 id='3'>LeetCode 367 有效的完全平方数</h2>
+给定一个正整数 num，编写一个函数，如果 num 是一个完全平方数，则返回 True，否则返回 False。
+说明：不要使用任何内置的库函数，如  sqrt。
+
+    示例 1：
+      输入：16
+      输出：True
+
+    示例 2：
+      输入：14
+      输出：False
+
+#### 方法一： 单层循环
+
+```javascript
+var isPerfectSquare = function (num) {
+  if (num < 2) return num
+  for (let i = 0; i <= num; i++) {
+    if (i * i == num) return true 
+  }
+  return false
+}
+```
+
+#### 方法二： 二分查找
+
+```javascript
+var isPerfectSquare = function (num)  {
+  if (num < 2) return num
+
+  let left = 1, right = num
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2) 
+    const curr = mid * mid
+    if (curr == num) return true
+    if (curr > num) left = mid + 1
+    if (curr < num) right = mid - 1
+  }
+  return false
+}
+```
+
+#### 方法三、牛顿迭代法
+```javascript
+var isPerfectSquare = function (num) {
+  if (num == 1) return num
+
+  let mid = Math.floor(num / 2)
+  while (!(mid * mid <= num && (mid + 1) * (mid + 1) > num)) {
+    mid = Math.floor(mid - (mid * mid - num) / (2 * mid))
+  }
+  return mid * mid == num
+}
+```
+
+#### 数学方法
+```javascript
+var isPerfectSquare = function (num) {
+  let i = 1
+  while (num > 0) {
+    num -= i
+    i += 2
+  }
+  return num == 0
+}
+```
