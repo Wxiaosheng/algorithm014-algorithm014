@@ -152,3 +152,31 @@ var permute = function(nums) {
         [2,1,1]
     ]
 
+```javascript
+var permuteUnique = function (nums) {
+  if (nums.length == 0) return []
+
+  const result = []
+  const hash = new Set()
+  const helper = fucntion (level, sub) {
+    // terminator
+    if (level >= nums.length) {
+      const c = sub.map(i => nums[i])
+      if (hash.has(c.join(''))) return;
+      hash.add(c.join(''))
+      return result.push(c.slice(0))
+    }
+    // process current logic
+    for (let i = 0; i < nums.length; i++) {
+      if (sub.includes(i)) continue
+      sub.push(i)
+      // drill down
+      helper(level + 1, sub)
+      // restore
+      sub.pop()
+    }
+  }
+  helper(0, [])
+  return result
+}
+```
