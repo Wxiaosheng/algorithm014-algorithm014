@@ -50,6 +50,68 @@ var mySqrt = function (x) {
 }
 ```
 
+<h2 id='2'>LeetCode 515 在每个树行中找最大值  </h2>
+您需要在二叉树的每一行中找到最大的值。
+
+示例：
+
+    输入: 
+
+          1
+         / \
+        3   2
+       / \   \  
+      5   3   9 
+
+输出: [1, 3, 9]
+
+#### 方法一： BFS
+
+```javascript
+var largestValues = function(root) {
+  if (root == null) return []
+
+  const result = []
+  const queue = [root]
+
+  while (queue.length) {
+    const n = queue.length
+    let max
+    for (let i = 0; i < n; i++) {
+      const node = queue.shift()
+      max = max === undefined ? node.val : Math.max(max, node.val)
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
+    }
+    result.push(max)
+  }
+  return result
+};
+```
+
+
+#### 方法二：DFS + level
+
+```javascript
+var largestValues = function(root) {
+  if (root == null) return []
+
+  const result = []
+  const helper = function (level, node) {
+    // terminator
+    if (node == null) return
+    // process current logic
+    result[level - 1] = result[level - 1] === undefined ? node.val : Math.max(result[level - 1], node.val)
+    // drill down
+    helper(level + 1, node.left)
+    helper(level + 1, node.right)
+    // restore
+  }
+  helper(1, root)
+  return result
+};
+```
+
 <h2 id='3'>LeetCode 367 有效的完全平方数</h2>
 给定一个正整数 num，编写一个函数，如果 num 是一个完全平方数，则返回 True，否则返回 False。
 说明：不要使用任何内置的库函数，如  sqrt。
