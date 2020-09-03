@@ -45,3 +45,5 @@
 * 2020-9-1: [LeetCode 509 斐波那契数](./leetcode.509.md)
 
 * 2020-9-2: [LeetCode 122 买卖股票的最佳时机](./leetcode.122.md)
+
+* 2020-9-3: [LeetCode 860 柠檬水找零](./leetcode.860.md)
