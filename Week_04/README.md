@@ -18,7 +18,7 @@
     * ❌ 扫雷游戏（亚马逊、Facebook 在半年内面试中考过）
     * ✅ [LeetCode 860 柠檬水找零](../questions/leetcode.860.md)（亚马逊在半年内面试中考过）
     * ✅ [LeetCode 122 买卖股票的最佳时机](../questions/leetcode.122.md) （亚马逊、字节跳动、微软在半年内面试中考过）
-    * ❌ 分发饼干（亚马逊在半年内面试中考过）
+    * ✅ [LeetCode 455 分发饼干](./Day4/README.md#4)（亚马逊在半年内面试中考过）
     * ❌ 模拟行走机器人
     * ❌ 跳跃游戏 （亚马逊、华为、Facebook 在半年内面试中考过）
     * ❌ 跳跃游戏 II （亚马逊、华为、字节跳动在半年内面试中考过）
@@ -28,6 +28,7 @@
     * ❌ 使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
 * 其他
   * ✅ [LeetCode 509 斐波那契数](../questions/leetcode.509.md)
+  * ✅ [LeetCode 108 将有序数组转换为二叉搜索树](../questions/leetcode.509.md)
 
 ## 本周总结的思维导图
 ![dfs_bfs](./dfs_bfs.png)
