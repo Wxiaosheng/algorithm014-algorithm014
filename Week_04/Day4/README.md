@@ -85,3 +85,69 @@ var minMutation = function () {
   return -1
 }
 ```
+
+<h2 id='3'>LeetCode 108 将有序数组转换为二叉搜索树</h2>
+将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。
+
+本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。
+
+    示例:
+
+    给定有序数组: [-10,-3,0,5,9],
+
+    一个可能的答案是：[0,-3,9,-10,null,5]，它可以表示下面这个高度平衡二叉搜索树：
+
+          0
+        / \
+      -3   9
+      /   /
+    -10  5
+
+#### 方法一： 自己想出来的递归
+
+```javascript
+var sortArrayToBST = function (nums) {
+  if (nums.length == 0) return null
+  const helper = function (node, left, right) {
+    // terminator
+    if (left.length == 0 && right.length == 0) return new TreeNode(node)
+    // process current logic
+    const root = new TreeNode(node)
+    const mid1 = Math.floor(left.length / 2)
+    if (left[mid1] !== undefined) {
+      root.left = helper(left[mid1], left.slice(0, mid1), left.slice(mid1 + 1))
+    }
+    const mid2 = Math.floor(right.length / 2)
+    if (right[mid1] !== undefined) {
+      root.right = helper(right[mid2], right.slice(0, mid2), right.slice(mid2 + 1))
+    }
+    // drill down
+    // restore
+    return root
+  }
+  const mid = Math.floor(nums.length / 2)
+  return helper(mid, nums.slice(0, mid), nums.slice(mid + 1))
+}
+```
+
+#### 优化后的递归
+
+```javascript
+var sortedArrayToBST = function(nums) {
+  if (nums.length == 0) return null
+
+  const helper = function (nums, left, right) {
+    // terminator
+    if (left > right) return null
+    // process current logic
+    const mid = Math.floor((left + right )/ 2)
+    const root = new TreeNode(nums[mid])
+    root.left = helper(nums, left, mid - 1)
+    root.right = helper(nums, mid + 1, right)
+    // drill wodn
+    // restore
+    return root
+  }
+  return helper(nums, 0, nums.length - 1)
+};
+```
