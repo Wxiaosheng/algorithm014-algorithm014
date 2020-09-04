@@ -71,6 +71,7 @@ var minMutation = function () {
 
   while (queue.length) {
     const [str, count] = queue.shift()
+    if (str == end) return count
     for (let i = 0; i < str.lengt; i++) {
       for (let c of base) {
         const nextStr = `${str.sicle(i, j)}${c}${str.slice(j + 1)}`

@@ -19,53 +19,77 @@
 
 ```javascript
 var ladderLength = function (beginWord, endWord, wordList) {
-    if (!wordList.includes(endWord)) return 0
+  if (!wordList.includes(endWord)) return 0
 
-    const wn = beginWord.length
-    const hash = new Set(wordList) // 方便判断生成的字符串是否在字典中
-    const visited = new Set() // 记录已访问的结点
-    const queue = [beginWord]
-    visited.add(beginWord)
+  const wn = beginWord.length
+  const hash = new Set(wordList) // 方便判断生成的字符串是否在字典中
+  const visited = new Set() // 记录已访问的结点
+  const queue = [beginWord]
+  visited.add(beginWord)
 
-    let step = 1
+  let step = 1
 
-    while (queue.length) {
-        const n = queue.length
-
-        // BFS 遍历 Graph 每一层
-        for (let i = 0; i < n; i++) {
-            const str_arr = queue.shift().split('')
-            for (let j = 0; j < wn; j++) {
-                const originChar = str_arr[j]
-                for (let k = 0; k < 26; k++) {
-                    const char = String.fromCharCode(97 + k)
-                    if (char == originChar) continue
-                     str_arr[j] = char
-                    const nextStr = str_arr.join('')
-                    // 非字典中元素，不处理
-                    if (hash.has(nextStr)) {
-                        // 找到 endWord
-                        if (nextStr == endWord) return step+1
-                        // 未访问过的结点 才加入 queue
-                        if (!visited.has(nextStr)) {
-                            queue.push(nextStr)
-                            visited.add(nextStr)
-                        }
-                    }
-                }
-                str_arr[j] = originChar
+  while (queue.length) {
+    const n = queue.length
+    // BFS 遍历 Graph 每一层
+    for (let i = 0; i < n; i++) {
+      const str_arr = queue.shift().split('')
+      for (let j = 0; j < wn; j++) {
+        const originChar = str_arr[j]
+        for (let k = 0; k < 26; k++) {
+          const char = String.fromCharCode(97 + k)
+          if (char == originChar) continue
+            str_arr[j] = char
+          const nextStr = str_arr.join('')
+          // 非字典中元素，不处理
+          if (hash.has(nextStr)) {
+            // 找到 endWord
+            if (nextStr == endWord) return step+1
+            // 未访问过的结点 才加入 queue
+            if (!visited.has(nextStr)) {
+              queue.push(nextStr)
+              visited.add(nextStr)
             }
+          }
         }
-        step++
+        str_arr[j] = originChar
+      }
     }
-    return 0
+    step++
+  }
+  return 0
 }
 ```
 
+#### 优化后的 BFS
+```javascript
+var ladderLength = function (beginWord, endWord, wordList) {
+  if (wordList.length == 0 || !wordList.includes(endWord)) return 0
+
+  const hash = new Set(wordList)
+  const visited = new Set()
+  const queue = [[beginWord, 1]]
+  visited.add(beginWord)
+
+  while (queue.length) {
+    const [str, count] = queue.shift()
+    if (str == endWord) return count
+    for (let i = 0; i < str.length; i++) {
+      for (let j = 0; j < 26; j++) {
+        const char = String.fromCharCode(97 + j)
+        if (char == str[i]) continue
+        const nextStr = `${str.slice(0, i)}${char}${str.slice(i + 1)}`
+        if (hash.hash(nextStr) && !visited.has(nextStr)) {
+          queue.push([nextStr, count + 1])
+          visited.add(nextStr)
+        }
+      }
+    }
+  }
+  return 0
+}
+```
 
 #### 双向 BFS
 > 前提必须是 起点 和 终点 必须是已知的
 
-```javascript
-
-```
