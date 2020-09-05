@@ -42,3 +42,39 @@ var search = function (nums, target) {
 }
 ```
 
+
+<h2 id='2'>LeetCode 74 搜索二维矩阵</h2>
+编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
+
+每行中的整数从左到右按升序排列。  
+每行的第一个整数大于前一行的最后一个整数。  
+
+
+#### 方法一： sort + includes
+
+```javascript
+var searchMatrix = function (matrix, target) {
+    return matrix.flat(2).includes(target)
+}
+```
+
+#### 方法二： 二分法
+
+```javascript
+var searchMatrix = function(matrix, target) {
+    if (matrix.length == 0) return false
+    const m = matrix.length
+    const n = matrix[0].length
+
+    let left = 0, right = m*n - 1
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2)
+        const mx = Math.floor(mid / n)
+        const my = mid % n
+        if (matrix[mx][my] == target) return true
+        if (matrix[mx][my] > target) right = mid - 1
+        else left = mid + 1
+    }
+    return false
+};
+```

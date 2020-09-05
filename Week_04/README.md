@@ -23,7 +23,7 @@
     * ✅ [LeetCode 55 跳跃游戏](./Day5/README.md#2) （亚马逊、华为、Facebook 在半年内面试中考过）
     * ❌ 跳跃游戏 II （亚马逊、华为、字节跳动在半年内面试中考过）
     * ✅ [LeetCode 33 搜索旋转排序数组](./Day6/README.md#1)（Facebook、字节跳动、亚马逊在半年内面试常考）
-    * ❌ 搜索二维矩阵（亚马逊、微软、Facebook 在半年内面试中考过）
+    * ❌ [LeetCode 74 搜索二维矩阵](./Day5/README.md#2)（亚马逊、微软、Facebook 在半年内面试中考过）
     * ❌ 寻找旋转排序数组中的最小值（亚马逊、微软、字节跳动在半年内面试中考过）
     * ❌ 使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
 * 其他
@@ -130,4 +130,22 @@ var bs = function (array) {
 ##### 牛顿迭代法的公式： x = (x + a / x) / 2
 
 
-作业：使用二分查找的方式(O(logN))找出 旋转排序数组的旋转位置
+##### 作业
+1. 使用二分查找的方式(O(logN))找出 旋转排序数组的旋转位置
+
+```javascript
+var find = function (nums) {
+    if (nums.length < 2) return 0
+    let left = 0, right = nums.lenght - 1
+
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2)
+        if (nums[left] < nums[mid]) {
+            left = mid
+        } else {
+            right = mid
+        }
+    }
+    return left == right ? left : 0
+}
+```
