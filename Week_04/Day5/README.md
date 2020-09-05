@@ -88,3 +88,51 @@ var robotSim = function (commands, obstacles) {
   return max
 } 
 ```
+
+<h2 id='2'>LeetCode 55 跳跃游戏</h2>
+
+#### 方法一，遍历每一个位置，记录当前能到达的路径
+
+```javascript
+var canJump = function (nums) {
+  if (nums.length < 2) return true
+  const result = (new Array(nums.length)).fill(false)
+  result[0] = true
+  for (let i = 0; i < nums.length - 1; i++) {
+    // 减枝
+    if (!result[i]) return false
+    if (i + nums[i] >= nums.length - 1) return true
+    while (nums[i] > 0) result[i + nums[i]--] = true
+  }
+  return result.filter(r => !r).length == 0
+}
+```
+
+### 方法二，贪心算法，循环每一个元素，确定能走的最大距离
+
+```javascript
+var canJump = function (nums) {
+  if (nums.length < 2) return true
+  if (nums.length < 2) return true
+  let max = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (i <= max) max = Math.max(max, i + nums[i])
+  }
+  return max >= nums.length - 1
+}
+```
+
+##### 上面方法还可以进一步减支
+```javascript
+var canJump = function (nums) {
+  if (nums.length < 2) return true
+  if (nums.length < 2) return true
+  let max = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (i <= max) max = Math.max(max, i + nums[i])
+    // 减支
+    if (max >= nums.length - 1) return true
+  }
+  return max >= nums.length - 1
+}
+```
