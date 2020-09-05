@@ -153,6 +153,28 @@ var sortedArrayToBST = function(nums) {
 };
 ```
 
+##### 方法二中，其实 helper 的 nums 参数没有发生过变化，所以不用做参数传递
+
+```javascript
+var sortArrayToBST = function (nums) {
+    if (nums.length == 0) return null
+
+  const helper = function (left, right) {
+    // terminator
+    if (left > right) return null
+    // process current logic
+    const mid = Math.floor((left + right) / 2)
+    const root = new TreeNode(nums[mid])
+    root.left = helper(left, mid - 1)
+    root.right = helper(mid + 1, right)
+    // drill down
+    // restore
+    return root
+  }
+  return helper(0, nums.length - 1)
+}
+```
+
 <h2 id='4'>LeetCode 455 分发饼干</h2>
 假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。对每个孩子 i ，都有一个胃口值 gi ，这是能让孩子们满足胃口的饼干的最小尺寸；并且每块饼干 j ，都有一个尺寸 sj 。如果 sj >= gi ，我们可以将这个饼干 j 分配给孩子 i ，这个孩子会得到满足。你的目标是尽可能满足越多数量的孩子，并输出这个最大数值。
 
