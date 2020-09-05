@@ -19,7 +19,7 @@
     * ✅ [LeetCode 860 柠檬水找零](../questions/leetcode.860.md)（亚马逊在半年内面试中考过）
     * ✅ [LeetCode 122 买卖股票的最佳时机](../questions/leetcode.122.md) （亚马逊、字节跳动、微软在半年内面试中考过）
     * ✅ [LeetCode 455 分发饼干](./Day4/README.md#4)（亚马逊在半年内面试中考过）
-    * ❌ 模拟行走机器人
+    * ✅ [LeetCode 874 模拟机器人行走](./Day5/README.md#1)
     * ❌ 跳跃游戏 （亚马逊、华为、Facebook 在半年内面试中考过）
     * ❌ 跳跃游戏 II （亚马逊、华为、字节跳动在半年内面试中考过）
     * ❌ 搜索旋转排序数组（Facebook、字节跳动、亚马逊在半年内面试常考）
