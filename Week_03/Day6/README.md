@@ -138,7 +138,7 @@ var permute = function(nums) {
 };
 ```
 
-<h2 id="3">LeetCode 46 全排列II</h2>
+<h2 id="3">LeetCode 47 全排列II</h2>
 
 给定一个可包含重复数字的序列，返回所有不重复的全排列。
 
