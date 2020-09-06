@@ -24,8 +24,8 @@
     * ❌ 跳跃游戏 II （亚马逊、华为、字节跳动在半年内面试中考过）
     * ✅ [LeetCode 33 搜索旋转排序数组](./Day6/README.md#1)（Facebook、字节跳动、亚马逊在半年内面试常考）
     * ✅ [LeetCode 74 搜索二维矩阵](./Day5/README.md#2)（亚马逊、微软、Facebook 在半年内面试中考过）
-    * ❌ 寻找旋转排序数组中的最小值（亚马逊、微软、字节跳动在半年内面试中考过）
-    * ❌ 使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
+    * ✅ [LeetCode 153 寻找旋转排序数组中的最小值](./Day7/README.md#1)（亚马逊、微软、字节跳动在半年内面试中考过）
+    * ✅ [使用二分查找，寻找一个半有序数组](#1) [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
 * 其他
   * ✅ [LeetCode 509 斐波那契数](../questions/leetcode.509.md)
   * ✅ [LeetCode 108 将有序数组转换为二叉搜索树](../questions/leetcode.509.md)
@@ -158,3 +158,19 @@ var find = function (nums) {
     return left || nums[left]
 }
 ```
+
+<h2 id='1'>使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方</h2>
+
+```javascript
+var find = function (nums) {
+    let left = 0, right = nums.length - 1
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2)
+        if (nums[mid] < nums[right]) right = mid
+        else left = mid + 1
+    }
+    return left
+}
+```
+
+![homework](./homework.png)
