@@ -133,6 +133,13 @@ var bs = function (array) {
 ##### 作业
 1. 使用二分查找的方式(O(logN))找出 旋转排序数组的旋转位置
 
+##### 旋转排序数组 与 排序数组的却别：
+* 相同点：
+    * 都可以直接套用 二分法代码模板
+* 不同点
+    * 排序数组的二分法判断条件是 mid 与 target 比较
+    * 旋转排序数组的二分法判断条件是 mid 与 right 比较，确定最小值可能存在的位置
+
 ```javascript
 var find = function (nums) {
     if (nums.length < 2) return 0
@@ -140,12 +147,14 @@ var find = function (nums) {
 
     while (left < right) {
         const mid = Math.floor((left + right) / 2)
-        if (nums[left] < nums[mid]) {
-            left = mid
-        } else {
+        // mid 可能是最小值
+        if (nums[mid] < nums[right]) {
             right = mid
+        // mid 一定不是最小值
+        } else {
+            left = mid + 1
         }
     }
-    return left == right ? left : 0
+    return left || nums[left]
 }
 ```
