@@ -53,3 +53,5 @@
 * 2020-9-5: [LeetCode 367 有效的完全平方数](../Week_04/Day2/README.md#3)
 
 * 2020-9-6: [LeetCode 169 多数元素](../Week_04/Day4/README.md#3)
+
+* 2020-9-7: [LeetCode 127 单词接龙](../Week_04/Day3/README.md#1)
