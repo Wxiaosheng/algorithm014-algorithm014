@@ -129,6 +129,81 @@ Heap： 可以迅速在一堆数中，找到最大值或最小值的数据结构
 2. delete max - O(logN)
 3. inset - O(logN)
 
+#### N叉树遍历模板
+1. N叉树 前序遍历 模板
+```javascript
+// recursion
+var nTreePreorder = function (root) {
+  if (root == null) return []
+  const result = []
+  const helepr = function (node) {
+    // treminaor  
+    if (node == null) return
+    // process current logic
+    result.push(node.val)
+    for (let n of node.children) {
+      helepr(n)
+    }
+    // drill down
+    // restore
+  }
+  helper(root)
+  return result
+}
+
+// 迭代
+var nTreePreorder = function (root) {
+  if (root == null) return []
+  const result = []
+  const stack = [root]
+  while (stack.length) {
+    const node = stack.pop()
+    result.push(node.val)
+    for (let i = node.children.legnth - 1; i >= 0; i++) {
+      stack.push(node.children[i])
+    }
+  }
+  return result
+}
+```
+
+2. N叉树 后序遍历 模板
+```javascript
+// recursion
+var nTreePostorder = function (root) {
+  if (root == null) return []
+  const result = []
+  const helper = function(root) {
+    // terminator
+    if (root == null) return
+    // process current logic
+    for (let n of node.children) {
+      helper(n)
+    }
+    result.push(node.val)
+    // drill dwon
+    // restore
+  }
+  helper(root)
+  return result
+}
+
+// 迭代
+var nTreePostorder = function (root) {
+  if (root == null) return []
+  const result  = []
+  const stack = [root]
+  while (stack.length) {
+    const node = stack.pop()
+    result.push(node.val)
+    for (let n of node.children) {
+      result.push(n)
+    }
+  }
+  return result.reverse()
+}
+```
+
 实战题：
 1. ✅ 最小的 k 个数（sort + slice, loop + 小顶堆）
 2. ✅ 滑动窗口最大值（loop + 大顶堆）
