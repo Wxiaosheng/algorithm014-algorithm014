@@ -48,10 +48,10 @@ var isUgly = function (n) {
 
 ```javascript
 var isUgly = function (n) {
-  if (n <= 0) return false
+  if (num <= 0) return false
   const zs = [2, 3, 5]
   for (let i of zs) {
-    while (num % i) {
+    while (num % i == 0) {
       num = num / i
     }
   }
