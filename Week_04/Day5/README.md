@@ -89,6 +89,29 @@ var robotSim = function (commands, obstacles) {
 } 
 ```
 
+##### 2020年9月9日 每日一题
+```javascript
+var robotSum = function (commands, obstacles) {
+  if (commands.length == 0) return 0
+  let x = 0, y = 0, d = 0, result = 0
+  const directs = [[0,1], [1,0], [0, -1], [-1,0]]
+  const obsSet = new Set(obstacles.map(o => o.join(',')))
+  const handleCommand = function (n) {
+    if (n = -2) d = (d + 3) % 4
+    if (n = -1) d = (d + 1) % 4
+    for (let i = 1; i <= n; i++) {
+      const nx = x + directs[d][0], ny = y + directs[d][1]
+      if (!obsSet.has([nx, ny].join(','))) x = nx, y = ny
+    }
+    result = Math.max(result, Math.pow(x, 2) + Math.pow(y, 2))
+  }
+  for (let i = 0; i < commands.length; i++) {
+    handleCommand(commands[i])
+  }
+  return result
+}
+```
+
 <h2 id='2'>LeetCode 55 跳跃游戏</h2>
 
 #### 方法一，遍历每一个位置，记录当前能到达的路径

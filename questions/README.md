@@ -55,3 +55,7 @@
 * 2020-9-6: [LeetCode 169 多数元素](../Week_04/Day4/README.md#3)
 
 * 2020-9-7: [LeetCode 127 单词接龙](../Week_04/Day3/README.md#1)
+
+* 2020-9-8: [LeetCode 560 和为K的子数组](./leetcode.560.md)
+
+* 2020-9-9: [LeetCode 874 模拟机器人行走](../Week_04/Day5/README.md#1)
