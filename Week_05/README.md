@@ -7,6 +7,7 @@
 * LeetCode 206 反转链表
 * LeetCode 24 两两交换链表中的节点
 * LeetCode 25 K 个一组翻转链表
+* LeetCode 433 最小基因变化
 
 
 * 二叉树遍历 - 代码模板
@@ -17,30 +18,154 @@
   * 后续 递归 + 迭代
 
 
+树的遍历 - 代码模板
 
+二叉树遍历
+BFS
+```javascript
+var bfs1 = funct ion (root) {
+    if (root == null) return []
+    const result = []
+    const queue = [root] 
+    while (queue.length) {
+        const n = queue.length, sub = []
+        for (let i = 0; i < n; i++) {
+            const node = queue.shift()
+            sub.push(node.val)
+            if (node.left) queue.push(node.left)
+            if (node.right) queue.push(node.right)
+        }
+        result.push(sub)
+    }
+    return result
+}
+```
 
-括号生成 (字节跳动在半年内面试中考过)
-翻转二叉树 (谷歌、字节跳动、Facebook 在半年内面试中考过)
-验证二叉搜索树（亚马逊、微软、Facebook 在半年内面试中考过）
-二叉树的最大深度（亚马逊、微软、字节跳动在半年内面试中考过）
-二叉树的最小深度（Facebook、字节跳动、谷歌在半年内面试中考过）
-二叉树的序列化与反序列化（Facebook、亚马逊在半年内面试常考）
-课后作业
-二叉树的最近公共祖先（Facebook 在半年内面试常考）
-从前序与中序遍历序列构造二叉树（字节跳动、亚马逊、微软在半年内面试中考过）
-组合（微软、亚马逊、谷歌在半年内面试中考过）
-全排列（字节跳动在半年内面试常考）
-全排列 II （亚马逊、字节跳动、Facebook 在半年内面试中考过）
-分治代码模板
-Pow(x, n) （Facebook 在半年内面试常考）
-子集（Facebook、字节跳动、亚马逊在半年内面试中考过）
-牛顿迭代法
-多数元素 （亚马逊、字节跳动、Facebook 在半年内面试中考过）
-电话号码的字母组合（亚马逊在半年内面试常考）
-N 皇后（字节跳动、苹果、谷歌在半年内面试中考过）
-二叉树的层次遍历
-分发饼干
-买卖股票的最佳时机 II
-跳跃游戏
-x 的平方根
-有效的完全平方数
+```javascript
+var bfs2 = function (root) {
+    if (root == null) return []
+    const reuslt = []
+    const queue = [[root, 1]]
+    while (queue.lenght) {
+        const [node, level] = queue.shift()
+        result[level] = result[level] === undefined ? [] : result[level]
+        result[level].push(node.val)
+        if (node.left) queue.psuh(node.left)
+        if (node.right) queue.push(node.right)
+    }
+    return result
+}
+```
+
+```javascript
+var dfs = function (root) {
+    if (root == null) return []
+    const result = []
+    const helper = fucntion (node) {
+        // terminator
+        if (node == null) return
+        // process current logic
+        helper(node.left)
+        result.push(node.val)
+        helper(node.right)
+        // dirll down
+        // restore
+    }
+    helper(root)
+    return result
+}
+```
+
+```javascript
+var dfs = function (root) {
+    if (root == null) return []
+    const reuslt = [], stack = []
+    let curr = root
+    while (curr !== null || stack.length) {
+        if (curr !== null) {
+            stack.push(curr)
+            curr = curr.left
+        } else {
+            const node = stack.pop()
+            result.push(node.val)
+            curr = node.right
+        }
+    }
+    return result
+}
+```
+
+N叉的遍历
+```javascript
+var bfs = function (root) {
+    if (root == null) return []
+    const result = []
+    const queue = [root]
+    while (queue.length) {
+        const n = queue.length, sub = []
+        for (let i = 0; i < n; i++) {
+            const node = queue.shift()
+            sub.push(node.val)
+            for (let n of node.children) {
+                queue.push(n)
+            }
+        }
+        result.push(sub)
+    }
+    return result
+}
+```
+
+```javascript
+var dfs = fucntion (root) {
+    if (root == null) return []
+    const result = []
+    const helper = function (root) {
+        // terminator
+        if (root == null) return
+        // process current logic
+        result.push(node.val)
+        for (let n of node.children) {
+            helper(n)
+        }
+        // drill down
+        // restore
+    }
+    helper(root)
+    return result
+}
+```
+
+```javascript
+// preorder
+var bfs = fucntion (root) {
+    if (root == null) return []
+    const result = []
+    const stack = [root]
+    while (stack.length) {
+        const node = stack.pop()
+        result.push(node.val)
+        for (let i = node.children.length; i >= 0; i--) {
+            stack.push(node.children[i])
+        }
+    }
+    return result
+}
+```
+
+```javascript
+// postorder 
+var dd = function (root) {
+    if (root == null) return []
+    const result = []
+    const stack = [root]
+    while (stack.length) {
+        const node = stack.pop()
+        result.push(node.val)
+        for (let n of node.children) {
+            stack.push(n)
+        }
+    }
+    return result.reverse()
+}
+```
