@@ -73,31 +73,89 @@ var bfs = function (root) {
 4. ✅ 在每个树行中找最大值（微软、亚马逊、Facebook 在半年内面试中考过）
 
 课后作业
-1. 单词接龙（亚马逊在半年内面试常考）
+1. ✅ 单词接龙（亚马逊在半年内面试常考）
 2. 单词接龙 II （微软、亚马逊、Facebook 在半年内面试中考过）
-3. 岛屿数量（近半年内，亚马逊在面试中考查此题达到 350 次）
+3. ✅ 岛屿数量（近半年内，亚马逊在面试中考查此题达到 350 次）
 4. 扫雷游戏（亚马逊、Facebook 在半年内面试中考过）
 
 
 ## 第10课 贪心算法
 
 课后作业
-1. 柠檬水找零（亚马逊在半年内面试中考过）
-2. 买卖股票的最佳时机 II （亚马逊、字节跳动、微软在半年内面试中考过）
-3. 分发饼干（亚马逊在半年内面试中考过）
-4. 模拟行走机器人
-5. 跳跃游戏 （亚马逊、华为、Facebook 在半年内面试中考过）
+1. ✅ 柠檬水找零（greedy）
+2. ✅ 买卖股票的最佳时机 II （greedy）
+3. ✅ 分发饼干（greedy）
+4. ✅ 模拟行走机器人 (if-else + loop)
+5. ✅ 跳跃游戏 （确定能到的最大位置）
 6. 跳跃游戏 II （亚马逊、华为、字节跳动在半年内面试中考过）
 
 
 ## 第11课 二分查找
 
 实战题目
-1. x 的平方根（字节跳动、微软、亚马逊在半年内面试中考过）
-2. 有效的完全平方数（亚马逊在半年内面试中考过）
+1. ✅ x 的平方根（Binary Search）
+2. ✅ 有效的完全平方数（Binary Search）
 
 课后作业
-1. 搜索旋转排序数组（Facebook、字节跳动、亚马逊在半年内面试常考）
-2. 搜索二维矩阵（亚马逊、微软、Facebook 在半年内面试中考过）
-3. 寻找旋转排序数组中的最小值（亚马逊、微软、字节跳动在半年内面试中考过）
+1. ✅ 搜索旋转排序数组（Binary Search）
+2. ✅ 搜索二维矩阵（Binary Search）
+3. ✅ 寻找旋转排序数组中的最小值（Binary Search）
 4. 使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
+
+
+#### Binary Search 代码模板
+
+1. 标准 Binary Search 模板
+
+```javascript
+var bs = function (nums, target) {
+    if (nums.length == 0) return false
+
+    let left = 0, right = nums.length - 1
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2)
+        if (nums[mid] == target) {
+            return true
+        } else if (nums[i] < target) {
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+}
+```
+
+2. 旋转排序数组模板
+
+```javascript
+var xzbs = function (nums) {
+    if (nums.length == 0) return false
+
+    let left = 0, right = nums.length - 1
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2)
+        // mid 可能是最小值
+        if (nums[mid] < nums[right]) right = mid
+        else left = mid + 1
+    }
+    return nums[left]
+}
+```
+
+3. 有效的完全平方数
+
+```javascript
+var isPerfectSquare = function (num)  {
+  if (num < 2) return num
+
+  let left = 0, right = num - 1
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2) 
+    const curr = mid * mid
+    if (curr == num) return true
+    if (curr > num) right = mid - 1
+    if (curr < num) left = mid + 1
+  }
+  return false
+}
+```

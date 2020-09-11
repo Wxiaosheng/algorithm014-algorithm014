@@ -8,6 +8,7 @@
 * LeetCode 24 两两交换链表中的节点
 * LeetCode 25 K 个一组翻转链表
 * LeetCode 433 最小基因变化
+* LeetCode 55 跳跃游戏
 
 
 * 二叉树遍历 - 代码模板

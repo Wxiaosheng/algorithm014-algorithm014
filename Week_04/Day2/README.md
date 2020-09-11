@@ -24,7 +24,7 @@ var mySqrt = function (x) {
 #### 方法二： 二分查找
 ```javascript
 var mySqrt = function (x) {
-  if (x == 0) return 0
+  if (x == 0 || x == 1) return x
   let left = 0, right = Math.floor(x / 2)
   while (left < right) {
     const mid = Math.floor((left + right) / 2 + 1)
