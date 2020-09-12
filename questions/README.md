@@ -63,3 +63,5 @@
 * 2020-9-10: [LeetCode 53 最大子序和](./leetcode.53.md)
 
 * 2020-9-11: [LeetCode 1143 最长公共子序列](./leetcode.1143.md)
+
+* 2020-9-12: [LeetCode 74 搜索二维矩阵](../Week_04/Day6/README.md#2)
