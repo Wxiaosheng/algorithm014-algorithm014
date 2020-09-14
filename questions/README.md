@@ -65,3 +65,7 @@
 * 2020-9-11: [LeetCode 1143 最长公共子序列](./leetcode.1143.md)
 
 * 2020-9-12: [LeetCode 74 搜索二维矩阵](../Week_04/Day6/README.md#2)
+
+* 2020-9-13: [剑指offer 05 替换空格](./offer.05.md)
+
+* 2020-9-14: [LeetCode 64 最小路径](./leetcode.64.md)
