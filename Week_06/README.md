@@ -1,5 +1,60 @@
 # 学习笔记
 
+## 动态规划 - Dynamic Programming
+### 复习 递归、分治、回溯
+```javascript
+// recursion 代码模板
+var recur = function (level, ...) {
+  // rerminator
+  if (level >= max_leve) return 
+  // process current logic
+  process(...)
+  // drill down
+  recur(level + 1, ...)
+  // restore current status, if need
+}
+```
+
+```javascript 
+// Divide & Conquer
+var divide_conquer = function (problem, params1, params2, ...) {
+  // terminator
+  if (problem == null) return result
+  // prepare data
+  data = prepare_data(problem)
+  subProblems = split_problem(problem)
+
+  // conquer subproblems
+  result1 = divide_conquer(subproblem1)
+  result2 = divide_conquer(subproblem2)
+
+  // process or generate the final result
+  result = proces_result(result1, result2, ...)
+}
+```
+
+#### 思想
+1. 拒绝人肉递归
+2. 寻找最小、最简子问题，并转化为可重复解决子问题
+3. 数学归纳法的思想
+
+### Dynamic Programming
+**Divide & Conquer + Optimal Substructure** => **分治 + 最优子结构**
+
+#### 关键点
+DP 和 Divide & Conquer 没有本质上的区别，都是寻找重复子问题 (就看有无最优子结构)
+
+**共性： 找重复子问题**
+**差异性： 最优子结构， 中途可以淘汰次优解** 
+
+解题套路：
+1. 最优子结构， opt[n] = best_of(opt[n-1], opt[n-2])
+2. 存储中间状态： opt[i] (可能是二维 甚至是 多维的)
+3. 递推公式 （状态转移方程 或 DP 方程）
+    opt[n] = opt[n-1] + opt[n-2]
+
+
+    
 
 ## 刷题计划：
 1. ✅ [LeetCode 62 不同路径](./Day1/README.md#1)（Facebook、亚马逊、微软在半年内面试中考过）
