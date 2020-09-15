@@ -4,10 +4,10 @@
 ## 刷题计划：
 1. ✅ [LeetCode 62 不同路径](./Day1/README.md#1)（Facebook、亚马逊、微软在半年内面试中考过）
 2. ✅ [LeetCode 63 不同路径 II](./Day01/README.md#2) （谷歌、美团、微软在半年内面试中考过）
-3. 最长公共子序列（字节跳动、谷歌、亚马逊在半年内面试中考过）
+3. ✅ [LeetCode 1143 最长公共子序列](./Day1/README.md#3)（字节跳动、谷歌、亚马逊在半年内面试中考过）
 4. MIT 动态规划课程最短路径算法
 5. ✅ 爬楼梯（阿里巴巴、腾讯、字节跳动在半年内面试常考）
-6. 三角形最小路径和（亚马逊、苹果、字节跳动在半年内面试考过）
+6. ✅ [LeetCode 120 三角形最小路径和](./Day2/README.md#1)（亚马逊、苹果、字节跳动在半年内面试考过）
     * [三角形最小路径和高票回答](https://leetcode.com/problems/triangle/discuss/38735/Python-easy-to-understand-solutions-(top-down-bottom-up))
 7. 最大子序和（亚马逊、字节跳动在半年内面试常考）
 8. 乘积最大子数组（亚马逊、字节跳动、谷歌在半年内面试中考过）
