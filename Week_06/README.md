@@ -54,7 +54,7 @@ DP 和 Divide & Conquer 没有本质上的区别，都是寻找重复子问题 (
     opt[n] = opt[n-1] + opt[n-2]
 
 
-    
+
 
 ## 刷题计划：
 1. ✅ [LeetCode 62 不同路径](./Day1/README.md#1)（Facebook、亚马逊、微软在半年内面试中考过）
@@ -66,7 +66,7 @@ DP 和 Divide & Conquer 没有本质上的区别，都是寻找重复子问题 (
     * [三角形最小路径和高票回答](https://leetcode.com/problems/triangle/discuss/38735/Python-easy-to-understand-solutions-(top-down-bottom-up))
 7. 最大子序和（亚马逊、字节跳动在半年内面试常考）
 8. 乘积最大子数组（亚马逊、字节跳动、谷歌在半年内面试中考过）
-9. 零钱兑换（亚马逊在半年内面试中常考）
+9. ✅ [LeetCode 322 零钱兑换](../questions/leetcode.322.md)（亚马逊在半年内面试中常考）
 10. 打家劫舍（字节跳动、谷歌、亚马逊在半年内面试中考过）
 11. 打家劫舍 II （字节跳动在半年内面试中考过）
 12. 买卖股票的最佳时机（亚马逊、字节跳动、Facebook 在半年内面试中常考）
