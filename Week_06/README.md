@@ -64,7 +64,7 @@ DP 和 Divide & Conquer 没有本质上的区别，都是寻找重复子问题 (
 5. ✅ 爬楼梯（阿里巴巴、腾讯、字节跳动在半年内面试常考）
 6. ✅ [LeetCode 120 三角形最小路径和](./Day2/README.md#1)（亚马逊、苹果、字节跳动在半年内面试考过）
     * [三角形最小路径和高票回答](https://leetcode.com/problems/triangle/discuss/38735/Python-easy-to-understand-solutions-(top-down-bottom-up))
-7. 最大子序和（亚马逊、字节跳动在半年内面试常考）
+7. ✅ [LeetCode 53 最大子序和](../questions/leetcode.53.md)（亚马逊、字节跳动在半年内面试常考）
 8. 乘积最大子数组（亚马逊、字节跳动、谷歌在半年内面试中考过）
 9. ✅ [LeetCode 322 零钱兑换](../questions/leetcode.322.md)（亚马逊在半年内面试中常考）
 10. 打家劫舍（字节跳动、谷歌、亚马逊在半年内面试中考过）
