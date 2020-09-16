@@ -68,3 +68,58 @@ var minimumTotal = function (triangle) {
     return dp[0]
 }
 ```
+
+<h2 id="2">LeetCode 198 打家劫舍</h2>
+你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+
+给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
+
+提示：
+1. 0 <= nums.length <= 100
+2. 0 <= nums[i] <= 400
+
+#### 方法一： recursion
+> DP 与 Recursion 没有本质的区别
+
+**`Recursion` 会超时**
+
+```javascript
+var rob = function (nums) {
+    if (nums.length == 0) return 0
+    let max = 0
+    const helper = function (level, sum) {
+        // terminator
+        if (level >= nums.length) return max = Math.max(max, sum)
+        // process current logic
+        helper(level + 1, sum)
+        helper(level + 2, sum + nums[level])
+        // drill down
+        // restore
+    }
+    helper(0, 0)
+    return max
+}
+```
+
+#### 方法二： 动态规划
+1. 最优子结构
+    f(n) = max(f(n - 1), (f(n - 2) + n))
+2. 中间结果
+    dp[n]
+3. 递推公式
+    dp[n] = Math.max(dp[n-1], (dp[n-2] + n))
+
+```javascript
+var rob = function (nums) {
+    const n = nums.length
+    if (n == 0) return 0
+    if (n < 3) return Math.max(...nums)
+
+    const dp = [nums[0], Math.max(nums[0], nums[1])]
+
+    for (let i = 2; i < n; i++) {
+        dp[i] = Math.max(dp[i-1], (dp[i-2] + nums[i]))
+    }
+    return dp[n - 1]
+}
+```
