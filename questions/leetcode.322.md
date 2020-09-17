@@ -20,7 +20,7 @@ var coinChange = function (coins, amount) {
   // 2. 存储中间状态 dp[i]
   // 3. 递推公式 dp[n] = min(dp[i - coins1], dp[i - coins2], ...) + 1
   if (coins.length == 0) return -1
-  const dp = new Array(amount + 1)
+  const dp = [0]
   for (let i = 1; i <= amount; i++) {
     let min = Number.MAX_VALUE
     for (let j = 0; j < coins.length; j++) {

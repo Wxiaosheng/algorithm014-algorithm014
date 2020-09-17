@@ -54,12 +54,13 @@ var uniquePaths = function (m, n) {
 var uniquePathsWithObstacles = function (obstacleGrid) {
   if (obstacleGrid.length == 0 || obstacleGrid[0].length == 0) return 0
 
-  const dp = (new Array(m)).fill(1).map(i => (new Array(n)).fill(n))
   const m = obstacleGrid.length, n = obstacleGrid[0].length
+  const dp = (new Array(m)).fill(1).map(i => (new Array(n)).fill(1))
+
   for (let i = 0; i < m; i++) {
     dp[i][0] = obstacleGrid[i][0] === 1 ? 0 : i - 1 > -1 ? dp[i - 1][0] : 1 
   }
-  for (let j = 0; j < m; j++) {
+  for (let j = 0; j < n; j++) {
     dp[0][j] = obstacleGrid[0][j] === 1 ? 0 : j - 1 > -1 ? dp[0][j - 1] : 1 
   }
   for (let i = 1; i < m; i++) {
