@@ -73,3 +73,5 @@
 * 2020-9-15: [LeetCode 322 零钱兑换](./leetcode.322.md)
 
 * 2020-9-16: [LeetCode 213 打家劫舍 II](../Week_06/Day3/README.md#1)
+
+* 2020-9-17: [LeetCode 589 N叉树的前序遍历](../Week_02/Day3/README.md#2)
