@@ -75,3 +75,9 @@
 * 2020-9-16: [LeetCode 213 打家劫舍 II](../Week_06/Day3/README.md#1)
 
 * 2020-9-17: [LeetCode 589 N叉树的前序遍历](../Week_02/Day3/README.md#2)
+
+* 2020-9-18: [LeetCode 120 三角形最小路径和](../Week_06/Day2/README.md#1)
+
+* 2020-9-19: [LeetCode 33 搜索旋转排序数组](../Week_04/Day6/README.md#1)
+
+* 2020-9-20: [LeetCode 322 零钱兑换(第二遍)](./leetcode.322.md)
