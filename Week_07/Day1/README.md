@@ -36,3 +36,25 @@ var convertBST = function (root) {
   return root
 }
 ```
+
+#### 方法二： 非递归
+**标准的非递归 后序遍历模板 + 记录累加的和**
+
+```javascript
+var convertBST = function (root) {
+  if (root == null) return root
+  let preSum = 0, curr = root, stack = []
+  while (curr !== null || stack.length) {
+    if (curr !== null) {
+      stack.push(curr)
+      curr = curr.right
+    } else {
+      const node = stack.pop()
+      node.val = node.val + preSum
+      preSum = node.val
+      curr = node.left
+    }
+  }
+  return root
+}
+```
