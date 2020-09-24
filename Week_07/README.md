@@ -3,6 +3,7 @@
 ## LeetCode 每日一题
 * ✅  [LeetCode 538 把二叉搜索树转换为累加树](./Day1/README.md#1)
 * ✅  [LeetCode 617 合并二叉树](./Day3/README.md#1)
+* ✅  [LeetCode 152 乘积最大子数组](./Day4/README.md#2)
 
 ## 刷题
 * ✅  二叉树的层次遍历 (过遍数)
