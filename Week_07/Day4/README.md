@@ -53,6 +53,51 @@ var findCircleNum = function (M) {
 }
 ```
 
+#### 解法二：并查集
+自定义 并查集，解题
+
+```javascript
+var var findCircleNum = function (M) {
+  class Unionfind {
+    constructor (n) {
+      this.count = n;
+      this.parent = new Array(n)
+      for (let i  =0; i < n; i++) {
+        this.parent[i] = i
+      }
+    }
+    find(p) {
+      let root = p
+      while (this.parent[p] !== p) {
+        root = this.parent[p]
+      }
+      // 压缩路径
+      while (this.parent[p] !== p) {
+        [p, this.parent[p]] = [this.parent[p], root]
+      }
+      return root
+    }
+    union(p, q) {
+      const rootP = this.find(p)
+      const rootQ = this.find(q)
+      if (rootP === rootQ) return
+      this.parent[rootP] = rootQ
+      this.count--
+    }
+  }
+
+  const m = M.length, n = M[0].length
+  const uf = new UnionFind(m)
+
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (M[i][j] == 1) uf.union(i, j)
+    }
+  }
+  return uf.count
+}
+```
+
 <h2 id="2">LeetCode 152 乘积最大子序列</h2>
 给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
 

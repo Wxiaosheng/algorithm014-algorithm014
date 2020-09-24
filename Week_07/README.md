@@ -30,3 +30,42 @@
 
 #### 核心思想
 Tire 树的核心思想是 **空间换时间**，利用字符串的公共前缀来降低查询时间的开销已达到提高效率的目的 
+
+
+## 查并集
+
+#### 代码模板
+```javascript
+class UnionFind {
+  constructor(n) {
+    this.count = n
+    this.parent = new Array(n)
+    for (let i = 0; i < n; i++) {
+      this.parent[i] = i
+    }
+  } 
+
+  find (p) {
+    let root = p
+    while (root != this.parent[root]) {
+      root = this.parent[root]
+    }
+    // 路径压缩
+    while (this.parent[p] != p) {
+      [p, this.parent[p]] = [this.parent[p], root]
+      // let x = p
+      // p = this.parent[x]
+      // this.parent[x] = root
+    }
+    return root
+  }
+
+  union (p, q) {
+    const rootP = this.find(p)
+    const rootQ = this.find(q)
+    if (rootP === rootQ) return
+    this.parent[rootP] = rootQ
+    this.count--
+  }
+}
+```
