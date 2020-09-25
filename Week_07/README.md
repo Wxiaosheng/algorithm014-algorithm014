@@ -35,7 +35,7 @@ Tire 树的核心思想是 **空间换时间**，利用字符串的公共前缀�
 
 ## 查并集
 
-#### 代码模板
+#### 并查集代码模板
 ```javascript
 class UnionFind {
   constructor(n) {
@@ -68,5 +68,77 @@ class UnionFind {
     this.parent[rootP] = rootQ
     this.count--
   }
+}
+```
+
+
+## 高级搜索
+#### DFS - 深度优先搜索代码模板
+```javascript
+// 递归
+var dfs = function (root) {
+  if (root == null) return []
+  const result = []
+  const helper = function (node) {
+    // terminator
+    if (node == null) return
+    // process current logic
+    helper(node.left)
+    result.push(node.val)
+    helper(node.right)
+    // dirll down
+    // restore
+  }
+  helper(root)
+  return result
+}
+
+// 非递归
+var dfs = function (root) {
+  if (root == null) return []
+  const result = [], statck = []
+  let curr = root
+  while (curr !== null || statck.length) {
+    if (curr !== null) {
+      statck.push(node)
+      curr = curr.left
+    } else {
+      const node = stack.pop()
+      result.push(node.val)
+      curr = node.right
+    }
+  } 
+}
+```
+
+#### BFS - 广度优先搜索代码模板
+```javascript
+var bfs = function (root) {
+  if (root == null) return []
+  const result = [], queue = [root]
+
+  while (queue.length) {
+    const n = queue.length
+    for (let i = 0; i < n; i++) {
+      const node = queue.shift()
+      result.push(node.val)
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
+    }
+  }
+}
+
+// 更短
+var bfs = function (root) {
+  if (root == null) return []
+  const result = [], queue = [[root, 0]]
+  while(queue.length) {
+    const [node, level] = queue.shift()
+    result[level] = result[level] ? result[level] : []
+    result[level].push(node.val)
+    if (node.left) queue.push([node.left, level + 1])
+    if (node.right) queue.push([node.right, level + 1])
+  }
+  return result
 }
 ```
