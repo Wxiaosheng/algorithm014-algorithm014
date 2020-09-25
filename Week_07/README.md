@@ -4,6 +4,7 @@
 * ✅  [LeetCode 538 把二叉搜索树转换为累加树](./Day1/README.md#1)
 * ✅  [LeetCode 617 合并二叉树](./Day3/README.md#1)
 * ✅  [LeetCode 152 乘积最大子数组](./Day4/README.md#2)
+* ✅  [LeetCode 106 从中序与后序遍历序列构造二叉树](./Day5/README.md#1)
 
 ## 刷题
 * ✅  二叉树的层次遍历 (过遍数)
