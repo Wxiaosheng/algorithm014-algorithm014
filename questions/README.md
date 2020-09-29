@@ -97,3 +97,5 @@
 * 2020-9-27: [LeetCode 22 括号生成](../Week_03/Day1/README.md#1)
 
 * 2020-9-28: [LeetCode 547 朋友圈](../Week_07/Day4/README.md#1)
+
+* 2020-9-29: [LeetCode 633 平方数之和](./leetcode.633.md)
