@@ -99,3 +99,5 @@
 * 2020-9-28: [LeetCode 547 朋友圈](../Week_07/Day4/README.md#1)
 
 * 2020-9-29: [LeetCode 633 平方数之和](./leetcode.633.md)
+
+* 2020-9-29: [LeetCode 198 打家劫舍 - 过遍数](../Week_06/Day2/README.md#2)
