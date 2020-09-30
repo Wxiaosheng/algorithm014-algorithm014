@@ -27,6 +27,16 @@ var insertIntoBST = function (root, val) {
 }
 ```
 
+##### 观看国际站的题解后的更加优化的解法
+```javascript
+var insertIntoBST = function (root, val) {
+  if (root == null) return new TreeNode(val)
+  if (val < root.val) root.left = insertIntoBST(root.left, val)
+  else root.right = insertIntoBST(root.right, val)
+  return root
+}
+```
+
 #### 方法二： 迭代 - BFS
 > 本题不太适合 DFS，而 DFS 更加适合
 
