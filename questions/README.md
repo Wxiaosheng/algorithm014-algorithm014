@@ -100,4 +100,6 @@
 
 * 2020-9-29: [LeetCode 633 平方数之和](./leetcode.633.md)
 
-* 2020-9-29: [LeetCode 198 打家劫舍 - 过遍数](../Week_06/Day2/README.md#2)
+* 2020-9-30: [LeetCode 198 打家劫舍 - 过遍数](../Week_06/Day2/README.md#2)
+
+* 2020-10-1: [LeetCode 190 颠倒二进制位](./leetcode.190.md)
