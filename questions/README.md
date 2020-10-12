@@ -106,6 +106,9 @@
 
 * 2020-9-30: [LeetCode 198 打家劫舍 - 过遍数](../Week_06/Day2/README.md#2)
 
+* 2020-10-1: [LeetCode 190 颠倒二进制位](./leetcode.190.md)
+
 -- 国庆假期 --
 
-* 2020-10-1: [LeetCode 190 颠倒二进制位](./leetcode.190.md)
+* 2020-10-11: [LeetCode 83 删除排序链表中的重复元素](./leetcode.83.md)
+
