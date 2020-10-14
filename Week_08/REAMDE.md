@@ -54,7 +54,7 @@ mid = (left + right) / 2;   —>    mid = (left + right) >> 1;
 * [LeetCode 190 颠倒二进制位](./Day8/README.md#3)（苹果在半年内面试中考过）
 * N 皇后（字节跳动、亚马逊、百度在半年内面试中考过）
 * N 皇后 II （亚马逊在半年内面试中考过）
-* 比特位计数（字节跳动、Facebook、MathWorks 在半年内面试中考过）
+* [LeetCode 338 比特位计数](./Day8/README.md#4)（字节跳动、Facebook、MathWorks 在半年内面试中考过）
 
 
 ## 每日一题
