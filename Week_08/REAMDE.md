@@ -3,6 +3,16 @@
 
 # 牙疼，拔牙去了，躺了好多天，拉下了很多课程，今天(10月14日) 开始补上
 
+## 实战题目 / 课后作业
+* [LeetCode 191 位1的个数](./Day8/README.md#1)（Facebook、苹果在半年内面试中考过）
+* [LeetCode 231 2的幂](./Day8/README.md#2)（谷歌、亚马逊、苹果在半年内面试中考过）
+* [LeetCode 190 颠倒二进制位](./Day8/README.md#3)（苹果在半年内面试中考过）
+* N 皇后（字节跳动、亚马逊、百度在半年内面试中考过）
+* N 皇后 II （亚马逊在半年内面试中考过）
+* [LeetCode 338 比特位计数](./Day8/README.md#4)（字节跳动、Facebook、MathWorks 在半年内面试中考过）
+* [LeetCode 146 LRU缓存机制](.Day9/README.md#1)（亚马逊、字节跳动、Facebook、微软在半年内面试中常考）
+
+
 ## 第十六课 位运算
 #### 为什么需要位运算
 机器里数字的表示方法和储存格式 是二进制的，而人类常用的是 十进制
@@ -48,13 +58,12 @@ mid = (left + right) / 2;   —>    mid = (left + right) >> 1;
 * X & -X => 得到最低位的 1
 * X & ~X => 0
 
-## 实战题目 / 课后作业
-* [LeetCode 191 位1的个数](./Day8/README.md#1)（Facebook、苹果在半年内面试中考过）
-* [LeetCode 231 2的幂](./Day8/README.md#2)（谷歌、亚马逊、苹果在半年内面试中考过）
-* [LeetCode 190 颠倒二进制位](./Day8/README.md#3)（苹果在半年内面试中考过）
-* N 皇后（字节跳动、亚马逊、百度在半年内面试中考过）
-* N 皇后 II （亚马逊在半年内面试中考过）
-* [LeetCode 338 比特位计数](./Day8/README.md#4)（字节跳动、Facebook、MathWorks 在半年内面试中考过）
+## 第十七课 布隆过滤器 和 LRU Catch
+### 布隆过滤器
+
+### LRU Catch
+LRU (Least Recently Used) ，即 近期最少使用算法，它的核心思想就是会**优先淘汰那些近期最少使用的缓存对象**。
+
 
 
 ## 每日一题
