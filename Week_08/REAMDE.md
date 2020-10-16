@@ -120,6 +120,28 @@ var selectionSort = function (arr) {
 }
 ```
 
+#### 2、插入排序（Insertion Sort）
+1. 从前到后构建有序序列；
+2. 对未排序的数据，找到在有序序列中的位置插入；
+
+```javascript
+var insertionSort = function (arr) {
+  if (arr.length < 2) return arr
+  for (let i = 1; i < arr.length; i++) {
+    let idx = 0
+    for (let j = i-1; j >= 0; j--) {
+      if (arr[i] > arr[j]) {
+        idx = j + 1
+        continue
+      }
+    }
+    if (i !== idx) {
+      const [target] = arr.splice(i, 1)
+      arr.splice(idx, 0, target)
+    }
+  }
+}
+```
 
 ## 每日一题
 * [LeetCode 107 二叉搜索树中的插入操作](./Day1/README.md#1)
