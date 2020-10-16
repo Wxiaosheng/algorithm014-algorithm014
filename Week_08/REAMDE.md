@@ -11,6 +11,11 @@
 * N 皇后 II （亚马逊在半年内面试中考过）
 * [LeetCode 338 比特位计数](./Day8/README.md#4)（字节跳动、Facebook、MathWorks 在半年内面试中考过）
 * [LeetCode 146 LRU缓存机制](.Day9/README.md#1)（亚马逊、字节跳动、Facebook、微软在半年内面试中常考）
+* 数组的相对排序（谷歌在半年内面试中考过）
+* 有效的字母异位词（Facebook、亚马逊、谷歌在半年内面试中考过）
+* 力扣排行榜（此题选做；Bloomberg 在半年内面试中考过）
+* 合并区间（Facebook、字节跳动、亚马逊在半年内面试中常考）
+* 翻转对（字节跳动在半年内面试中考过）
 
 
 ## 第十六课 位运算
@@ -64,6 +69,56 @@ mid = (left + right) / 2;   —>    mid = (left + right) >> 1;
 ### LRU Catch
 LRU (Least Recently Used) ，即 近期最少使用算法，它的核心思想就是会**优先淘汰那些近期最少使用的缓存对象**。
 
+### 排序算法
+* 比较类排序
+  * 交换排序
+    * 冒泡排序
+    * 快速排序
+  * 插入排序
+    * 简单插入排序
+    * 希尔排序
+  * 选择排序
+    * 简单选择排序
+    * 堆排序
+  * 归并排序
+    * 二路归并
+    * 多路归并
+
+* 非比较类排序
+  * 计数排序
+  * 桶排序
+  * 基数排序
+
+#### 时间复杂度分析
+|排序方法|时间复杂度(平均)|时间复杂度(平均)|时间复杂度(平均)|空间复杂度|稳定性|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|插入排序|O(n^2)|O(n^2)|O(n)|O(1)|稳定|
+|希尔排序|O(n^1.3)|O(n^2)|O(n)|O(1)|不稳定|
+|选择排序|O(n^2)|O(n^2)|O(n)|O(1)|不稳定|
+|堆排序|O(nlogn)|O(nlogn)|O(nlogn)|O(1)|不稳定|
+|冒泡排序|O(n^2)|O(n^2)|O(nlogn)|O(1)|稳定|
+|快速排序|O(nlogn)|O(nlogn)|O(nlogn)|O(1)|不稳定|
+|归并排序|O(nlogn)|O(nlogn)|O(nlogn)|O(1)|稳定|
+|计数排序|O(n+k)|O(n+k)|O(n+k)|O(n+k)|稳定|
+|桶排序|O(n+k)|O(n^2)|O(n)|O(n+k)|稳定|
+|基数排序|O(n*k)|O(n*k)|O(n*k)|O(n*k)|稳定|
+
+#### 初级排序 - O(n^2)
+##### 1、选择排序（Selection Sort）
+每次找到最小值，放在待排序数组的起始位置
+
+```javascript
+var selectionSort = function (arr) {
+  if (arr.length < 2) return arr
+  for (let i = 0; i < arr.length; i++) {
+    let min = i
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) min = j
+    }
+    [arr[i], arr[min]] = [arr[min], arr[i]]
+  }
+}
+```
 
 
 ## 每日一题
