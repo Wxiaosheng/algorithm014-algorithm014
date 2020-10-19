@@ -157,5 +157,24 @@ var bubleSort = function (arr) {
 }
 ```
 
+#### 高级排序 - O(N*LogN)
+##### 1、快速排序（Quick Sort）
+1. 数组取 标杆 pivot，将小的元素放在 pivot 的左边，将大的元素放在右边
+2. 然后依次对左右两侧的元素，继续快排，已达到整个数组有序
+
+```javascript
+var quickSort = function (arr) {
+  if (arr.length < 2) return arr
+
+  const left = [], right = [], n = arr.length, pivot = Math.floor((n - 1)/ 2)
+  for (let i = 0; i < n; i++) {
+    if (i == pivot) continue
+    else if (arr[i] < arr[pivot]) left.push(arr[i])
+    else right.push(arr[i]) 
+  }
+  return [...quickSort(left), arr[pivot], ...quickSort(right)]
+}
+```
+
 ## 每日一题
 * [LeetCode 107 二叉搜索树中的插入操作](./Day1/README.md#1)
