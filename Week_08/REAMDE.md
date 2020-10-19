@@ -166,13 +166,40 @@ var bubleSort = function (arr) {
 var quickSort = function (arr) {
   if (arr.length < 2) return arr
 
-  const left = [], right = [], n = arr.length, pivot = Math.floor((n - 1)/ 2)
+  const left = [], right = [], n = arr.length, pivot = Math.floor((n - 1) >> 2)
   for (let i = 0; i < n; i++) {
     if (i == pivot) continue
     else if (arr[i] < arr[pivot]) left.push(arr[i])
     else right.push(arr[i]) 
   }
   return [...quickSort(left), arr[pivot], ...quickSort(right)]
+}
+```
+
+##### 2、归并排序（Merge Sort）— 分治
+1. 将长度为 N 的序列，分成两个长度为 N / 2 的子序列
+2. 对两个子序列分别采用 归并排序
+3. 将两个排序好的子序列，合并成一个最终的排序后的序列
+
+```javascript
+var megreSort = function (arr) {
+  // 待补充。。。
+}
+```
+
+* 归并 和 快排 具有相似性，但步骤顺序相反
+  * 归并 先排序左右两个子数组，然后再合并
+  * 快排 先调配出左右子数组，然后在排序
+
+
+##### 3、堆排序（Heap Sort） — 堆插入 O(logN)，取最大/小值 O(1)
+1. 数组元素依次建立小顶堆
+2. 依次取出 堆顶元素并删除
+
+```javascript
+var heapSort = function (arr) {
+  // 手写小顶堆 - (大顶堆)
+  // 依次取出顶堆元素并删除
 }
 ```
 
