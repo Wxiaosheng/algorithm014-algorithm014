@@ -118,3 +118,5 @@
 
 * 2020-10-16: [LeetCode 977 有序数组的平方](./leetcode.977.md)
 
+* 2020-10-20: [LeetCode 925 长按键入](../Week_09/Day1/README.md#1)
+
